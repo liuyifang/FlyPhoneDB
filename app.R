@@ -11,8 +11,8 @@ library(shinythemes)
       tabPanel("Navbar 1",
                sidebarPanel(
                  tags$h3("Input:"),
-                 textInput("txt1", "Given Name:", ""), # txt1 will be send to server
-                 textInput("txt2", "Surname:", ""),    # txt2 will be send to server
+                 textInput("txt1", "Given Name:", "hello"), # txt1 will be send to server
+                 textInput("txt2", "Surname:", "mao"),    # txt2 will be send to server
 
                ), # sidebarPanel
                mainPanel(
