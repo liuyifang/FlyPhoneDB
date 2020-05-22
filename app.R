@@ -49,9 +49,13 @@ ui <- fluidPage(theme = shinytheme("yeti"),
                              tableOutput("tabledata") # Prediction results table
                            ) # mainPanel
 
-                  ), # Navbar 1, tabPanel
-                  tabPanel("Navbar 2", "This panel is intentionally left blank"),
-                  tabPanel("Navbar 3", "This panel is intentionally left blank")
+                  ), #tabPanel(), Home
+
+                  tabPanel("About",
+                           titlePanel("About"),
+                           div(includeMarkdown("about.md"),
+                               align="justify")
+                  ) #tabPanel(), About
 
                 ) # navbarPage
 ) # fluidPage
