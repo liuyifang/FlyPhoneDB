@@ -3,6 +3,8 @@ library(shiny)
 library(data.table)
 library(randomForest)
 
+options(stringsAsFactors = FALSE)
+
 # Read in the RF model
 model <- readRDS("model.rds")
 
@@ -39,6 +41,12 @@ server <- function(input, output, session) {
 
   })
 
+  # dotplot table
+  dotplot_table <- reactive({
+    dotplot_table_df <- read.csv("LR_pairs3.csv", row.names = 1)
+    print(dotplot_table_df)
+  })
+
   # Status/Output Text Box
   output$contents <- renderPrint({
     if (input$submitbutton>0) {
@@ -49,9 +57,16 @@ server <- function(input, output, session) {
   })
 
   # Prediction results table
-  output$tabledata <- renderTable({
+  output$tabledata_output <- renderTable({
     if (input$submitbutton>0) {
       isolate(datasetInput())
+    }
+  })
+
+  # Export dotplot table
+  output$dotplot_table_output <- renderTable({
+    if (input$submitbutton>0) {
+      isolate(dotplot_table())
     }
   })
 

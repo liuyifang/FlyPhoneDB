@@ -42,7 +42,8 @@ ui <- fluidPage(theme = shinytheme("yeti"),
                            mainPanel(
                              tags$label(h3("Status/Output")), # Status/Output Text Box, same as HTML
                              verbatimTextOutput("contents"),
-                             tableOutput("tabledata") # Prediction results table
+                             tableOutput("tabledata_output"), # Prediction results table
+                             tableOutput("dotplot_table_output") # Prediction results table
                            ) # mainPanel
 
                   ), #tabPanel(), Home
