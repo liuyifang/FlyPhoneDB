@@ -1,7 +1,8 @@
 # Import libraries
 library(shiny)
 library(shinythemes)
-library(data.table)
+
+options(stringsAsFactors = FALSE)
 
 # Training set
 TrainSet <- read.csv("training.csv", header = TRUE)
@@ -22,27 +23,28 @@ ui <- fluidPage(theme = shinytheme("yeti"),
                            sidebarPanel(
                              #HTML("<h3>Input parameters</h3>"),
                              tags$label(h3("Input parameters")),
-                             sliderInput("Sepal.Length", label = "Sepal Length", value = 5.0,
+                             sliderInput(inputId = "Sepal.Length", label = "Sepal Length", value = 5.0,
                                          min = min(TrainSet$Sepal.Length),
                                          max = max(TrainSet$Sepal.Length)
                              ),
-                             sliderInput("Sepal.Width", label = "Sepal Width", value = 3.6,
+                             sliderInput(inputId = "Sepal.Width", label = "Sepal Width", value = 3.6,
                                          min = min(TrainSet$Sepal.Width),
                                          max = max(TrainSet$Sepal.Width)),
-                             sliderInput("Petal.Length", label = "Petal Length", value = 1.4,
+                             sliderInput(inputId = "Petal.Length", label = "Petal Length", value = 1.4,
                                          min = min(TrainSet$Petal.Length),
                                          max = max(TrainSet$Petal.Length)),
-                             sliderInput("Petal.Width", label = "Petal Width", value = 0.2,
+                             sliderInput(inputId = "Petal.Width", label = "Petal Width", value = 0.2,
                                          min = min(TrainSet$Petal.Width),
                                          max = max(TrainSet$Petal.Width)),
 
-                             actionButton("submitbutton", "Submit", class = "btn btn-primary")
+                             actionButton(inputId = "submitbutton", "Submit", class = "btn btn-primary")
                            ),
 
                            mainPanel(
                              tags$label(h3("Status/Output")), # Status/Output Text Box, same as HTML
                              verbatimTextOutput("contents"),
-                             tableOutput("dotplot_table_output") # dotplot table
+                             tableOutput("dotplot_table_output"), # dotplot table
+                             plotOutput("dotplot_output") # dotplot
                            ) # mainPanel
 
                   ), #tabPanel(), Home
