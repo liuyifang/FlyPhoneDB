@@ -1,6 +1,8 @@
 # Import libraries
 library(shiny)
 library(shinythemes)
+library(ggplot2)
+library(ggiraph)
 
 options(stringsAsFactors = FALSE)
 
@@ -38,13 +40,15 @@ ui <- fluidPage(theme = shinytheme("yeti"),
                                          max = max(TrainSet$Petal.Width)),
 
                              actionButton(inputId = "submitbutton", "Submit", class = "btn btn-primary")
+
+
                            ),
 
                            mainPanel(
                              tags$label(h3("Status/Output")), # Status/Output Text Box, same as HTML
                              verbatimTextOutput("contents"),
-                             tableOutput("dotplot_table_output"), # dotplot table
-                             plotOutput("dotplot_output") # dotplot
+                             girafeOutput("dotplot_girafe"),
+                             plotOutput("UMAP_plot")
                            ) # mainPanel
 
                   ), #tabPanel(), Home

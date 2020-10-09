@@ -189,6 +189,7 @@ server <- function(input, output, session) {
     # plot.data = cbind(plot.data,log2(pr))
     plot.data = cbind(plot.data, pr)
     colnames(plot.data) = c("pair", "clusters", "pvalue", "mean")
+    plot.data$id <- row.names(plot.data)
     plot.data
   })
 
@@ -204,21 +205,14 @@ server <- function(input, output, session) {
     }
   })
 
-  # Export dotplot table
-  output$dotplot_table_output <- renderTable({
-    if (input$submitbutton>0) {
-      isolate(dotplot_table())
-    }
-  })
-
   # Export dotplot
-  output$dotplot_output <- renderPlot({
+  output$dotplot_girafe <- renderGirafe({
     if (input$submitbutton>0) {
       isolate({
         my_palette <- colorRampPalette(c("black", "blue", "yellow", "red"), alpha=TRUE)(n=399)
 
-        ggplot(dotplot_data(), aes(x=clusters, y=pair)) +
-          geom_point(aes(size=-log10(pvalue), color=mean)) +
+        gg_dot <- ggplot(dotplot_data(), aes(x=clusters, y=pair, tooltip = id, data_id = id)) +
+          geom_point_interactive(aes(size=-log10(pvalue), color=mean)) +
           scale_color_gradientn("score", colors=my_palette) +
           theme_bw() +
           theme(panel.grid.minor = element_blank(),
@@ -228,10 +222,17 @@ server <- function(input, output, session) {
                 axis.text.y = element_text(size=12, colour = "black"),
                 axis.title=element_blank(),
                 panel.border = element_rect(size = 0.7, linetype = "solid", colour = "black"))
+        girafe(ggobj = gg_dot,
+               options = list(opts_selection(type = "single")) )
       })
     }
   })
 
+  # Export UMAP_plot
+  output$UMAP_plot <- renderPlot({
+    UMAP <- read.csv("2020-10-08_MT_UMAP.csv", row.names = 1)
+    plot(UMAP, pch=16)
+  })
 
 
 } # server
