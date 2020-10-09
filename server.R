@@ -211,7 +211,7 @@ server <- function(input, output, session) {
       isolate({
         my_palette <- colorRampPalette(c("black", "blue", "yellow", "red"), alpha=TRUE)(n=399)
 
-        gg_dot <- ggplot(dotplot_data(), aes(x=clusters, y=pair, tooltip = id, data_id = id)) +
+        gg_dot <- ggplot(dotplot_data(), aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
           geom_point_interactive(aes(size=-log10(pvalue), color=mean)) +
           scale_color_gradientn("score", colors=my_palette) +
           theme_bw() +
@@ -228,10 +228,37 @@ server <- function(input, output, session) {
     }
   })
 
+  output$choices <- renderPrint({
+    input$dotplot_girafe_selected
+  })
+
   # Export UMAP_plot
   output$UMAP_plot <- renderPlot({
+
+
     UMAP <- read.csv("2020-10-08_MT_UMAP.csv", row.names = 1)
-    plot(UMAP, pch=16)
+    matrix <- readRDS("2020-10-08_MT_matrix.Rds")
+    UMAP <- UMAP[colnames(matrix), ]
+    # plot(UMAP, pch=16)
+
+    id <- "128up"
+    l <- apply(as.data.frame(matrix[id, ]) - .1, 1, sum) + .1
+    f <- l == 0
+    l <- log2(l)
+    l[f] <- NA
+    mi <- min(l,na.rm=TRUE)
+    ma <- max(l,na.rm=TRUE)
+    ColorRamp <- colorRampPalette(c("#F2F2F2", "#F1E9E9", "#EEDBDB", "#F96060", "#FF0000"))(256)
+    ColorLevels <- seq(mi, ma, length=length(ColorRamp))
+    v <- round((l - mi)/(ma - mi)*255 + 1,0)
+    par(mfrow=c(1,1))
+    layout(matrix(data=c(1,3,2,4), nrow=2, ncol=2), widths=c(5,1,5,1), heights=c(5,1,1,1))
+    plot(UMAP, main=input$dotplot_girafe_selected,pch=20,cex=0.3,col="#F2F2F2",frame.plot=F, axes=FALSE, xlab="", ylab="")
+    rand_v <- 1:length(v)
+    rand_v <- sample(rand_v)
+    for ( k in rand_v ){
+      points(UMAP[k,1],UMAP[k,2],col=ColorRamp[v[k]],pch=20,cex=0.3)
+    }
   })
 
 

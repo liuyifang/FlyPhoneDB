@@ -48,7 +48,8 @@ ui <- fluidPage(theme = shinytheme("yeti"),
                              tags$label(h3("Status/Output")), # Status/Output Text Box, same as HTML
                              verbatimTextOutput("contents"),
                              girafeOutput("dotplot_girafe"),
-                             plotOutput("UMAP_plot")
+                             plotOutput("UMAP_plot"),
+                             verbatimTextOutput("choices")
                            ) # mainPanel
 
                   ), #tabPanel(), Home
