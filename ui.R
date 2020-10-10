@@ -3,6 +3,9 @@ library(shiny)
 library(shinythemes)
 library(ggplot2)
 library(ggiraph)
+library(dplyr)
+library(tidyr)
+library(ggdendro)
 
 options(stringsAsFactors = FALSE)
 
@@ -47,9 +50,11 @@ ui <- fluidPage(theme = shinytheme("yeti"),
                            mainPanel(
                              tags$label(h3("Status/Output")), # Status/Output Text Box, same as HTML
                              verbatimTextOutput("contents"),
+                             girafeOutput("heatmap_girafe"),
+                             girafeOutput("heatmap2_girafe"),
                              girafeOutput("dotplot_girafe"),
-                             plotOutput("UMAP_plot"),
-                             verbatimTextOutput("choices")
+                             verbatimTextOutput("choices"),
+                             plotOutput("UMAP_plot")
                            ) # mainPanel
 
                   ), #tabPanel(), Home

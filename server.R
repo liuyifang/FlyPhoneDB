@@ -12,11 +12,61 @@ options(stringsAsFactors = FALSE)
 # Define server function
 server <- function(input, output, session) {
 
-  # dotplot table
-  dotplot_table <- reactive({
-    dotplot_table_df <- read.csv("LR_pairs3.csv", row.names = 1)
-    print(dotplot_table_df)
-  })
+  # heatmap data
+  # mydata <- cor(mtcars)
+  mydata <- matrix(runif(2500, min = -2, max = 2), ncol = 50)
+  row.names(mydata) <- paste0("row_", seq_len(nrow(mydata)))
+  colnames(mydata) <- paste0("col_", seq_len(ncol(mydata)))
+
+  # dendrogram for rows
+  hc <- hclust(dist(mydata), "ave")
+  dhr <- as.dendrogram(hc)
+  order_r <- rownames(mydata)[hc$order]
+
+  # dendrogram for columns
+  hc <- hclust(dist(t(mydata)), "ave")
+  dhc <- as.dendrogram(hc)
+  order_c <- colnames(mydata)[hc$order]
+
+  # the data
+  expr_set <- bind_cols(
+    data_frame(rowvar = rownames(mydata)),
+    as.data.frame(mydata)
+  )
+  expr_set <- gather(expr_set, colvar, measure, -rowvar)
+  expr_set$rowvar <- factor( expr_set$rowvar, levels = order_r )
+  expr_set$colvar <- factor( expr_set$colvar, levels = order_c )
+  expr_set <- arrange(expr_set, rowvar, colvar)
+
+  # get data for dendrograms - IMHO, ggdendro is the hero here...
+  data_c <- dendro_data(dhc, type = "rectangle")
+  data_c <- segment(data_c) %>% mutate(
+    y = y + length(order_r) + .5,
+    yend = yend + length(order_r) + .5
+  )
+
+  data_r <- dendro_data(dhr, type = "rectangle")
+  data_r <- segment(data_r)
+  data_r <- data_r %>%
+    mutate( x_ = y + length(order_c) + .5,
+            xend_ = yend + length(order_c) + .5,
+            y_ = x,
+            yend_ = xend )
+
+  expr_set <- expr_set %>%
+    mutate(
+      tooltip = sprintf("Row: %s<br/>Col: %s<br/>measure: %.02f",
+                        rowvar, colvar, measure) ,
+      data_id = sprintf("%s_%s", rowvar, colvar)
+    )
+
+  # heatmap data2
+  count_network <- read.csv("count_network.csv")
+  str(count_network)
+  count_network$tooltip <- paste0("source: ", count_network$SOURCE, "<br/>",
+                                  "target: ", count_network$TARGET, "<br/>",
+                                  "count: ", count_network$count, "<br/>")
+  count_network$id <- paste0(count_network$SOURCE, ">", count_network$TARGET)
 
   # dotplot data
   dotplot_data <- reactive({
@@ -195,6 +245,84 @@ server <- function(input, output, session) {
 
 
 # Output ------------------------------------------------------------------
+
+  # Export heatmap
+  output$heatmap_girafe <- renderGirafe({
+    if (input$submitbutton>0) {
+      isolate({
+        # all data are tidy and can be now used with ggplot
+        gg_heatmap <- ggplot(data = expr_set, aes(x = colvar, y = rowvar) ) +
+          geom_tile_interactive(aes(fill = measure, tooltip = tooltip, data_id = data_id), colour = "white") +
+          scale_fill_gradient(low = "white", high = "#BC120A") +
+          geom_segment(
+            data = data_c,
+            mapping = aes(x = x, y = yend, xend = xend, yend = y),
+            colour = "gray20", size = .2) +
+          geom_segment(
+            data = data_r,
+            mapping = aes(x = x_, y = y_, xend = xend_, yend = yend_),
+            colour = "gray20", size = .2) +
+          coord_equal()
+
+        # cosmetics
+        gg_heatmap <- gg_heatmap + theme_minimal() +
+          theme(
+            legend.position = "right",
+            panel.grid.minor = element_line(color = "transparent"),
+            panel.grid.major = element_line(color = "transparent"),
+            axis.ticks.length   = unit(2, units = "mm"),
+            plot.title = element_text(face = "bold", hjust = 0.5, size = 12),
+            axis.title = element_text(size = 9, colour = "gray30"),
+            axis.text.y = element_text(hjust = 1, size = 5, colour = "gray40"),
+            axis.text.x = element_text(angle = 90, hjust = 1, size = 5, colour = "gray40"),
+            legend.title=element_text(face = "bold", hjust = 0.5, size=8),
+            legend.text=element_text(size=6)
+          )
+
+        girafe(ggobj = gg_heatmap,
+               options = list(opts_selection(type = "single")) )
+      })
+    }
+  })
+
+  # Export heatmap2
+  output$heatmap2_girafe <- renderGirafe({
+    if (input$submitbutton>0) {
+      isolate({
+        # all data are tidy and can be now used with ggplot
+        gg_heatmap2 <- ggplot(data = count_network, aes(x = SOURCE, y = TARGET) ) +
+          geom_tile_interactive(aes(fill = count, tooltip = tooltip, data_id = id), colour = "white") +
+          scale_fill_gradient(low = "white", high = "#BC120A") +
+          # geom_segment(
+          #   data = data_c,
+          #   mapping = aes(x = x, y = yend, xend = xend, yend = y),
+          #   colour = "gray20", size = .2) +
+          # geom_segment(
+          #   data = data_r,
+          #   mapping = aes(x = x_, y = y_, xend = xend_, yend = yend_),
+          #   colour = "gray20", size = .2) +
+          coord_equal()
+
+        # cosmetics
+        gg_heatmap2 <- gg_heatmap2 + theme_minimal() +
+          theme(
+            legend.position = "right",
+            panel.grid.minor = element_line(color = "transparent"),
+            panel.grid.major = element_line(color = "transparent"),
+            axis.ticks.length   = unit(2, units = "mm"),
+            plot.title = element_text(face = "bold", hjust = 0.5, size = 12),
+            axis.title = element_text(size = 9, colour = "gray30"),
+            axis.text.y = element_text(hjust = 1, size = 5, colour = "gray40"),
+            axis.text.x = element_text(angle = 90, hjust = 1, size = 5, colour = "gray40"),
+            legend.title=element_text(face = "bold", hjust = 0.5, size=8),
+            legend.text=element_text(size=6)
+          )
+
+        girafe(ggobj = gg_heatmap2,
+               options = list(opts_selection(type = "single")) )
+      })
+    }
+  })
 
   # Status/Output Text Box
   output$contents <- renderPrint({
