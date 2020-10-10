@@ -61,7 +61,7 @@ server <- function(input, output, session) {
     )
 
   # heatmap data2
-  count_network <- read.csv("count_network.csv")
+  count_network <- read.csv("data/MT/2020-10-10_count_network_MT.csv")
   str(count_network)
   count_network$tooltip <- paste0("source: ", count_network$SOURCE, "<br/>",
                                   "target: ", count_network$TARGET, "<br/>",
