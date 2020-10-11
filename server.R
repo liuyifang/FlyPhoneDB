@@ -193,15 +193,16 @@ server <- function(input, output, session) {
   output$UMAP_plot <- renderPlot({
 
 
-    UMAP <- read.csv("2020-10-08_MT_UMAP.csv", row.names = 1)
-    matrix <- readRDS("2020-10-08_MT_matrix.Rds")
+    UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
+    str(UMAP)
+    matrix <- readRDS("data/MT/2020-10-10_exprMat_norm_filter.Rds")
     UMAP <- UMAP[colnames(matrix), ]
     # plot(UMAP, pch=16)
 
-    id <- "128up"
+    id <- "Sema2b"
     l <- apply(as.data.frame(matrix[id, ]) - .1, 1, sum) + .1
     f <- l == 0
-    l <- log2(l)
+    # l <- log2(l)
     l[f] <- NA
     mi <- min(l,na.rm=TRUE)
     ma <- max(l,na.rm=TRUE)
