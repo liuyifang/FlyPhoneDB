@@ -52,6 +52,7 @@ ui <- fluidPage(theme = shinytheme("yeti"),
                              verbatimTextOutput("contents"),
                              girafeOutput("heatmap_girafe"),
                              girafeOutput("heatmap2_girafe"),
+                             verbatimTextOutput("heatmap2_choices"),
                              girafeOutput("dotplot_girafe"),
                              verbatimTextOutput("choices"),
                              plotOutput("UMAP_plot")

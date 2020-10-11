@@ -62,7 +62,7 @@ server <- function(input, output, session) {
 
   # heatmap data2
   count_network <- read.csv("data/MT/2020-10-10_count_network_MT.csv")
-  str(count_network)
+  # str(count_network)
   count_network$tooltip <- paste0("source: ", count_network$SOURCE, "<br/>",
                                   "target: ", count_network$TARGET, "<br/>",
                                   "count: ", count_network$count, "<br/>")
@@ -144,9 +144,13 @@ server <- function(input, output, session) {
           )
 
         girafe(ggobj = gg_heatmap2,
-               options = list(opts_selection(type = "single")) )
+               options = list(opts_selection(type = "multiple")) )
       })
     }
+  })
+
+  output$heatmap2_choices <- renderPrint({
+    input$heatmap2_girafe_selected
   })
 
   # Status/Output Text Box
@@ -160,14 +164,18 @@ server <- function(input, output, session) {
 
   # Export dotplot
   output$dotplot_girafe <- renderGirafe({
-    if (input$submitbutton>0) {
-      isolate({
+    # if (input$submitbutton>0) {
+      # isolate({
         my_palette <- colorRampPalette(c("black", "blue", "yellow", "red"), alpha=TRUE)(n=399)
 
         dotplot_data <- read.csv("data/MT/2020-10-10_MT_dotplot_data.csv",
                                  row.names = 1)
 
-        gg_dot <- ggplot(dotplot_data, aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
+        # dotplot_data_selected <- subset(dotplot_data, clusters == "? Crop or hindgut ?>? Crop or hindgut ?")
+        dotplot_data_selected <- subset(dotplot_data, clusters %in% input$heatmap2_girafe_selected)
+        print(input$heatmap2_girafe_selected)
+
+        gg_dot <- ggplot(dotplot_data_selected, aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
           geom_point_interactive(aes(size=-log10(pvalue), color=score)) +
           scale_color_gradientn("score", colors=my_palette) +
           theme_bw() +
@@ -181,8 +189,8 @@ server <- function(input, output, session) {
           theme(axis.text.x=element_blank())
         girafe(ggobj = gg_dot,
                options = list(opts_selection(type = "single")) )
-      })
-    }
+      # })
+    # }
   })
 
   output$choices <- renderPrint({
@@ -194,7 +202,7 @@ server <- function(input, output, session) {
 
 
     UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
-    str(UMAP)
+    # str(UMAP)
     matrix <- readRDS("data/MT/2020-10-10_exprMat_norm_filter.Rds")
     UMAP <- UMAP[colnames(matrix), ]
     # plot(UMAP, pch=16)
