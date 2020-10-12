@@ -177,7 +177,37 @@ server <- function(input, output) {
     input$dotplot_girafe_selected
   })
 
-  # Export UMAP_plot
+  # UMAP cluster
+  output$UMAP_cluster_girafe <- renderGirafe({
+
+    UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
+    cluster_annotation <- read.csv("data/MT/2020-10-08_MT_Leiden_resolution_0.4.csv", row.names = 1)
+    # str(cluster_annotation)
+    row.names(cluster_annotation) <- cluster_annotation$barcode
+    cluster_annotation <- cluster_annotation[row.names(UMAP), ]
+    UMAP_cluster_annotation <- cbind(UMAP, cluster_annotation)
+
+    if (is.null(input$heatmap2_girafe_selected)) {
+      gg_UMAP_cluster <- ggplot(UMAP_cluster_annotation, aes(x = UMAP_1, y = UMAP_2,
+                            colour = annotation, group = annotation)) +
+        geom_point_interactive(aes(tooltip = annotation, data_id = annotation)) +
+        scale_color_viridis_d() +
+        theme_minimal()
+
+    }else{
+
+    }
+
+    girafe(ggobj = gg_UMAP_cluster,
+           options = list(
+             opts_hover_inv(css = "opacity:0.1;"),
+             opts_hover(css = "stroke-width:2;")
+           )
+    )
+
+  })
+
+  # UMAP gene
   output$UMAP_plot <- renderPlot({
 
 
