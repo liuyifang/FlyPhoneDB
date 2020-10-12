@@ -1,7 +1,8 @@
 # Import libraries
 library(shiny)
 # library(shinythemes)
-library(shinydashboard)
+# library(shinydashboard)
+library(semantic.dashboard)
 library(ggplot2)
 library(ggiraph)
 library(dplyr)
@@ -10,25 +11,29 @@ library(ggdendro)
 
 options(stringsAsFactors = FALSE)
 
-####################################
-# User interface                   #
-####################################
-
 # Define UI
 ui <- dashboardPage(
                 dashboardHeader(title = "CLP"),
                 dashboardSidebar(
                   sidebarMenu(
-                    menuItem("MT", tabName = "mt", icon = icon("tree")),
-                    menuItem("Heart", tabName = "heart", icon = icon("tree"))
+                    menuItem("MT", tabName = "mt"),
+                    menuItem("Heart", tabName = "heart")
                   )
                 ),
                 dashboardBody(
-                  box(girafeOutput("heatmap2_girafe"), width = 8),
-                  box(verbatimTextOutput("heatmap2_choices")),
-                  box(girafeOutput("dotplot_girafe")),
-                  box(verbatimTextOutput("dotplot_choices")),
-                  box(plotOutput("UMAP_plot"))
+                  tabItems(
+                    tabItem("mt",
+                            box(girafeOutput("heatmap2_girafe"), width = 12),
+                            box(selectInput("heatmap_correlation", "Cluster row and column:", c(TRUE, FALSE)), width = 4),
+                            # box(verbatimTextOutput("heatmap2_choices")),
+                            box(girafeOutput("dotplot_girafe")),
+                            # box(verbatimTextOutput("dotplot_choices")),
+                            box(plotOutput("UMAP_plot"))
+                            ),
+                    tabItem("heart",
+                            h1("Heart")
+                    )
+                  )
                 )
 )
 
