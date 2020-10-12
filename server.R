@@ -16,7 +16,7 @@ server <- function(input, output) {
   count_network <- read.csv("data/MT/2020-10-10_count_network_MT.csv")
 
   data_wide <- pivot_wider(count_network, names_from = TARGET, values_from = count) %>% as.data.frame()
-  str(data_wide)
+  # str(data_wide)
   row.names(data_wide) <- data_wide$SOURCE
   data_wide$SOURCE <- NULL
 
@@ -211,29 +211,33 @@ server <- function(input, output) {
   output$UMAP_plot <- renderPlot({
 
 
-    UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
-    # str(UMAP)
-    matrix <- readRDS("data/MT/2020-10-10_exprMat_norm_filter.Rds")
-    UMAP <- UMAP[colnames(matrix), ]
+    # UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
+    # print(UMAP)
+    matrix <- readRDS("data/MT/2020-10-10_exprMat_norm_filter.Rds") %>% t()
+    UMAP <- UMAP[row.names(matrix), ]
+    UMAP_matrix <- cbind(UMAP, matrix)
     # plot(UMAP, pch=16)
 
-    id <- "Sema2b"
-    l <- apply(as.data.frame(matrix[id, ]) - .1, 1, sum) + .1
-    f <- l == 0
-    # l <- log2(l)
-    l[f] <- NA
-    mi <- min(l,na.rm=TRUE)
-    ma <- max(l,na.rm=TRUE)
-    ColorRamp <- colorRampPalette(c("#F2F2F2", "#F1E9E9", "#EEDBDB", "#F96060", "#FF0000"))(256)
-    ColorLevels <- seq(mi, ma, length=length(ColorRamp))
-    v <- round((l - mi)/(ma - mi)*255 + 1,0)
-    par(mfrow=c(1,1))
-    # layout(matrix(data=c(1,3,2,4), nrow=2, ncol=2), widths=c(5,1,5,1), heights=c(5,1,1,1))
-    plot(UMAP, main=input$dotplot_girafe_selected,pch=20,cex=0.3,col="#F2F2F2",frame.plot=F, axes=FALSE, xlab="", ylab="")
-    rand_v <- 1:length(v)
-    rand_v <- sample(rand_v)
-    for ( k in rand_v ){
-      points(UMAP[k,1],UMAP[k,2],col=ColorRamp[v[k]],pch=20,cex=0.3)
+    # print(input$dotplot_girafe_selected)
+    # split.var <- strsplit("apolpp_dally", "_")
+    # class(split.var)
+    # print(split.var[[1]][1])
+    # split.var <- c("Sema2b" , "dally" )
+    # print(UMAP_matrix[ , "Sema2b"])
+
+    if (is.null(input$dotplot_girafe_selected)) {
+      ggplot(UMAP_matrix, aes(x = UMAP_1, y = UMAP_2,
+                              colour = Sema2b)) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
+        geom_point() +
+        # scale_color_viridis_d() +
+        theme_minimal()
+    }else{
+      split.var <- strsplit(input$dotplot_girafe_selected, "_")
+      ggplot(UMAP_matrix, aes(x = UMAP_1, y = UMAP_2,
+                              colour = get(split.var[[1]][1]))) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
+        geom_point() +
+        # scale_color_viridis_d() +
+        theme_minimal()
     }
   })
 
