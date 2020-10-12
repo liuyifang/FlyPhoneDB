@@ -8,6 +8,7 @@ library(ggiraph)
 library(dplyr)
 library(tidyr)
 library(ggdendro)
+library(DT)
 
 options(stringsAsFactors = FALSE)
 
@@ -24,10 +25,12 @@ ui <- dashboardPage(
                   tabItems(
                     tabItem("mt",
                             box(girafeOutput("heatmap2_girafe"), width = 12),
-                            box(selectInput("heatmap_correlation", "Cluster row and column:", c(TRUE, FALSE)), width = 4),
-                            # box(verbatimTextOutput("heatmap2_choices")),
-                            box(girafeOutput("dotplot_girafe"), width = 16),
-                            # box(verbatimTextOutput("dotplot_choices")),
+                            box(selectInput("heatmap_correlation",
+                                            "Cluster row and column:",
+                                            c(TRUE, FALSE)),
+                                width = 4),
+                            box(girafeOutput("dotplot_girafe"), width = 10),
+                            box(dataTableOutput("dotplot_table"), style = "height:500px; overflow-x: scroll;", width = 6), # https://stackoverflow.com/questions/47505893/adding-a-vertical-and-horizontal-scroll-bar-to-the-dt-table-in-r-shiny
                             box(plotOutput("UMAP_plot"))
                             ),
                     tabItem("heart",

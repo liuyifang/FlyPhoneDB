@@ -164,6 +164,15 @@ server <- function(input, output) {
 
   })
 
+  output$dotplot_table <- renderDataTable({
+    if (is.null(input$heatmap2_girafe_selected)) {
+      dotplot_data
+    }else{
+      dotplot_data_selected <- subset(dotplot_data, clusters %in% input$heatmap2_girafe_selected)
+      dotplot_data_selected
+    }
+  })
+
   output$dotplot_choices <- renderPrint({
     input$dotplot_girafe_selected
   })
