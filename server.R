@@ -123,9 +123,9 @@ server <- function(input, output) {
       print(paste0("input$heatmap2_girafe_selected: is null"))
 
       dotplot_data_order_by_score <- dotplot_data[order(-dotplot_data$score), ]
-      dotplot_data_order_by_score_top <- head(dotplot_data_order_by_score, 20)
-      pair_top <- unique(dotplot_data_order_by_score_top$pair)
-      clusters_top <- unique(dotplot_data_order_by_score_top$clusters)
+      pair_top <- head(unique(dotplot_data_order_by_score$pair), 4)
+      clusters_top <- head(unique(dotplot_data_order_by_score$clusters), 10)
+
       dotplot_data_order_by_score_top <- subset(dotplot_data, pair %in% pair_top & clusters %in% clusters_top)
 
       gg_dot <- ggplot(dotplot_data_order_by_score_top, aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
@@ -142,7 +142,11 @@ server <- function(input, output) {
     }else{
       dotplot_data_selected <- subset(dotplot_data, clusters %in% input$heatmap2_girafe_selected)
 
-      gg_dot <- ggplot(dotplot_data_selected, aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
+      dotplot_data_order_by_score <- dotplot_data_selected[order(-dotplot_data_selected$score), ]
+      pair_top <- head(unique(dotplot_data_order_by_score$pair), 5)
+      dotplot_data_selected_order_by_score_top <- subset(dotplot_data_selected, pair %in% pair_top)
+
+      gg_dot <- ggplot(dotplot_data_selected_order_by_score_top, aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
         geom_point_interactive(aes(size=-log10(pvalue), color=score)) +
         scale_color_gradientn("score", colors=my_palette) +
         theme_bw() +
