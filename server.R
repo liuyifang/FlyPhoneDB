@@ -114,29 +114,50 @@ server <- function(input, output) {
 
   # Export dotplot
   output$dotplot_girafe <- renderGirafe({
-    my_palette <- colorRampPalette(c("black", "blue", "yellow", "red"), alpha=TRUE)(n=399)
+    my_palette <- colorRampPalette(c("black", "blue", "yellow", "red"), alpha=TRUE)(n=255)
 
     dotplot_data <- read.csv("data/MT/2020-10-10_MT_dotplot_data.csv",
                              row.names = 1)
 
-    # dotplot_data_selected <- subset(dotplot_data, clusters == "? Crop or hindgut ?>? Crop or hindgut ?")
-    dotplot_data_selected <- subset(dotplot_data, clusters %in% input$heatmap2_girafe_selected)
-    print(input$heatmap2_girafe_selected)
+    if (is.null(input$heatmap2_girafe_selected)) {
+      print(paste0("input$heatmap2_girafe_selected: is null"))
 
-    gg_dot <- ggplot(dotplot_data_selected, aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
-      geom_point_interactive(aes(size=-log10(pvalue), color=score)) +
-      scale_color_gradientn("score", colors=my_palette) +
-      theme_bw() +
-      theme(panel.grid.minor = element_blank(),
-            panel.grid.major = element_blank(),
-            axis.text=element_text(size=14, colour = "black"),
-            axis.text.x = element_text(angle = 90, hjust = 1),
-            axis.text.y = element_text(size=12, colour = "black"),
-            axis.title=element_blank(),
-            panel.border = element_rect(size = 0.7, linetype = "solid", colour = "black")) +
-      theme(axis.text.x=element_blank())
+      dotplot_data_order_by_score <- dotplot_data[order(-dotplot_data$score), ]
+      dotplot_data_order_by_score_top <- head(dotplot_data_order_by_score, 20)
+      pair_top <- unique(dotplot_data_order_by_score_top$pair)
+      clusters_top <- unique(dotplot_data_order_by_score_top$clusters)
+      dotplot_data_order_by_score_top <- subset(dotplot_data, pair %in% pair_top & clusters %in% clusters_top)
+
+      gg_dot <- ggplot(dotplot_data_order_by_score_top, aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
+        geom_point_interactive(aes(size=-log10(pvalue), color=score)) +
+        scale_color_gradientn("score", colors=my_palette) +
+        theme_bw() +
+        theme(panel.grid.minor = element_blank(),
+              panel.grid.major = element_blank(),
+              axis.text=element_text(size=14, colour = "black"),
+              axis.text.x = element_text(angle = 45, hjust = 1),
+              axis.text.y = element_text(size=12, colour = "black"),
+              axis.title=element_blank())
+
+    }else{
+      dotplot_data_selected <- subset(dotplot_data, clusters %in% input$heatmap2_girafe_selected)
+
+      gg_dot <- ggplot(dotplot_data_selected, aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
+        geom_point_interactive(aes(size=-log10(pvalue), color=score)) +
+        scale_color_gradientn("score", colors=my_palette) +
+        theme_bw() +
+        theme(panel.grid.minor = element_blank(),
+              panel.grid.major = element_blank(),
+              axis.text=element_text(size=14, colour = "black"),
+              axis.text.x = element_text(angle = 45, hjust = 1),
+              axis.text.y = element_text(size=12, colour = "black"),
+              axis.title=element_blank())
+
+    }
+
     girafe(ggobj = gg_dot,
            options = list(opts_selection(type = "single")) )
+
   })
 
   output$dotplot_choices <- renderPrint({
