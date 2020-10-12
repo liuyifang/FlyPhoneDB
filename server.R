@@ -71,49 +71,8 @@ server <- function(input, output, session) {
 
 # Output ------------------------------------------------------------------
 
-  # Export heatmap
-  output$heatmap_girafe <- renderGirafe({
-    if (input$submitbutton>0) {
-      isolate({
-        # all data are tidy and can be now used with ggplot
-        gg_heatmap <- ggplot(data = expr_set, aes(x = colvar, y = rowvar) ) +
-          geom_tile_interactive(aes(fill = measure, tooltip = tooltip, data_id = data_id), colour = "white") +
-          scale_fill_gradient(low = "white", high = "#BC120A") +
-          geom_segment(
-            data = data_c,
-            mapping = aes(x = x, y = yend, xend = xend, yend = y),
-            colour = "gray20", size = .2) +
-          geom_segment(
-            data = data_r,
-            mapping = aes(x = x_, y = y_, xend = xend_, yend = yend_),
-            colour = "gray20", size = .2) +
-          coord_equal()
-
-        # cosmetics
-        gg_heatmap <- gg_heatmap + theme_minimal() +
-          theme(
-            legend.position = "right",
-            panel.grid.minor = element_line(color = "transparent"),
-            panel.grid.major = element_line(color = "transparent"),
-            axis.ticks.length   = unit(2, units = "mm"),
-            plot.title = element_text(face = "bold", hjust = 0.5, size = 12),
-            axis.title = element_text(size = 9, colour = "gray30"),
-            axis.text.y = element_text(hjust = 1, size = 5, colour = "gray40"),
-            axis.text.x = element_text(angle = 90, hjust = 1, size = 5, colour = "gray40"),
-            legend.title=element_text(face = "bold", hjust = 0.5, size=8),
-            legend.text=element_text(size=6)
-          )
-
-        girafe(ggobj = gg_heatmap,
-               options = list(opts_selection(type = "single")) )
-      })
-    }
-  })
-
   # Export heatmap2
   output$heatmap2_girafe <- renderGirafe({
-    if (input$submitbutton>0) {
-      isolate({
         # all data are tidy and can be now used with ggplot
         gg_heatmap2 <- ggplot(data = count_network, aes(x = SOURCE, y = TARGET) ) +
           geom_tile_interactive(aes(fill = count, tooltip = tooltip, data_id = id), colour = "white") +
@@ -145,55 +104,40 @@ server <- function(input, output, session) {
 
         girafe(ggobj = gg_heatmap2,
                options = list(opts_selection(type = "multiple")) )
-      })
-    }
   })
 
   output$heatmap2_choices <- renderPrint({
     input$heatmap2_girafe_selected
   })
 
-  # Status/Output Text Box
-  output$contents <- renderPrint({
-    if (input$submitbutton>0) {
-      isolate("Calculation complete.")
-    } else {
-      return("Server is ready for calculation.")
-    }
-  })
-
   # Export dotplot
   output$dotplot_girafe <- renderGirafe({
-    # if (input$submitbutton>0) {
-      # isolate({
-        my_palette <- colorRampPalette(c("black", "blue", "yellow", "red"), alpha=TRUE)(n=399)
+    my_palette <- colorRampPalette(c("black", "blue", "yellow", "red"), alpha=TRUE)(n=399)
 
-        dotplot_data <- read.csv("data/MT/2020-10-10_MT_dotplot_data.csv",
-                                 row.names = 1)
+    dotplot_data <- read.csv("data/MT/2020-10-10_MT_dotplot_data.csv",
+                             row.names = 1)
 
-        # dotplot_data_selected <- subset(dotplot_data, clusters == "? Crop or hindgut ?>? Crop or hindgut ?")
-        dotplot_data_selected <- subset(dotplot_data, clusters %in% input$heatmap2_girafe_selected)
-        print(input$heatmap2_girafe_selected)
+    # dotplot_data_selected <- subset(dotplot_data, clusters == "? Crop or hindgut ?>? Crop or hindgut ?")
+    dotplot_data_selected <- subset(dotplot_data, clusters %in% input$heatmap2_girafe_selected)
+    print(input$heatmap2_girafe_selected)
 
-        gg_dot <- ggplot(dotplot_data_selected, aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
-          geom_point_interactive(aes(size=-log10(pvalue), color=score)) +
-          scale_color_gradientn("score", colors=my_palette) +
-          theme_bw() +
-          theme(panel.grid.minor = element_blank(),
-                panel.grid.major = element_blank(),
-                axis.text=element_text(size=14, colour = "black"),
-                axis.text.x = element_text(angle = 90, hjust = 1),
-                axis.text.y = element_text(size=12, colour = "black"),
-                axis.title=element_blank(),
-                panel.border = element_rect(size = 0.7, linetype = "solid", colour = "black")) +
-          theme(axis.text.x=element_blank())
-        girafe(ggobj = gg_dot,
-               options = list(opts_selection(type = "single")) )
-      # })
-    # }
+    gg_dot <- ggplot(dotplot_data_selected, aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
+      geom_point_interactive(aes(size=-log10(pvalue), color=score)) +
+      scale_color_gradientn("score", colors=my_palette) +
+      theme_bw() +
+      theme(panel.grid.minor = element_blank(),
+            panel.grid.major = element_blank(),
+            axis.text=element_text(size=14, colour = "black"),
+            axis.text.x = element_text(angle = 90, hjust = 1),
+            axis.text.y = element_text(size=12, colour = "black"),
+            axis.title=element_blank(),
+            panel.border = element_rect(size = 0.7, linetype = "solid", colour = "black")) +
+      theme(axis.text.x=element_blank())
+    girafe(ggobj = gg_dot,
+           options = list(opts_selection(type = "single")) )
   })
 
-  output$choices <- renderPrint({
+  output$dotplot_choices <- renderPrint({
     input$dotplot_girafe_selected
   })
 
