@@ -120,7 +120,7 @@ server <- function(input, output) {
                              row.names = 1)
 
     if (is.null(input$heatmap2_girafe_selected)) {
-      print(paste0("input$heatmap2_girafe_selected: is null"))
+      # print(paste0("input$heatmap2_girafe_selected: is null"))
 
       dotplot_data_order_by_score <- dotplot_data[order(-dotplot_data$score), ]
       pair_top <- head(unique(dotplot_data_order_by_score$pair), 4)
@@ -166,6 +166,8 @@ server <- function(input, output) {
 
   output$dotplot_table <- renderDataTable({
     if (is.null(input$heatmap2_girafe_selected)) {
+      dotplot_data <- read.csv("data/MT/2020-10-10_MT_dotplot_data.csv",
+                               row.names = 1)
       dotplot_data
     }else{
       dotplot_data_selected <- subset(dotplot_data, clusters %in% input$heatmap2_girafe_selected)
@@ -180,12 +182,7 @@ server <- function(input, output) {
   # UMAP cluster
   output$UMAP_cluster_girafe <- renderGirafe({
 
-    UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
-    cluster_annotation <- read.csv("data/MT/2020-10-08_MT_Leiden_resolution_0.4.csv", row.names = 1)
-    # str(cluster_annotation)
-    row.names(cluster_annotation) <- cluster_annotation$barcode
-    cluster_annotation <- cluster_annotation[row.names(UMAP), ]
-    UMAP_cluster_annotation <- cbind(UMAP, cluster_annotation)
+    UMAP_cluster_annotation <- readRDS("data/MT/2020-10-12_UMAP_matrix_down_sample_to_3000.Rds")
 
     if (is.null(input$heatmap2_girafe_selected)) {
       gg_UMAP_cluster <- ggplot(UMAP_cluster_annotation, aes(x = UMAP_1, y = UMAP_2,
@@ -214,6 +211,7 @@ server <- function(input, output) {
     # UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
     # print(UMAP)
     matrix <- readRDS("data/MT/2020-10-10_exprMat_norm_filter.Rds") %>% t()
+    UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
     UMAP <- UMAP[row.names(matrix), ]
     UMAP_matrix <- cbind(UMAP, matrix)
     # plot(UMAP, pch=16)
@@ -230,14 +228,16 @@ server <- function(input, output) {
                               colour = Sema2b)) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
         geom_point() +
         # scale_color_viridis_d() +
-        theme_minimal()
+        theme_minimal() +
+        coord_equal()
     }else{
       split.var <- strsplit(input$dotplot_girafe_selected, "_")
       ggplot(UMAP_matrix, aes(x = UMAP_1, y = UMAP_2,
                               colour = get(split.var[[1]][1]))) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
         geom_point() +
         # scale_color_viridis_d() +
-        theme_minimal()
+        theme_minimal() +
+        coord_equal()
     }
   })
 
