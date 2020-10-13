@@ -171,6 +171,9 @@ server <- function(input, output) {
       dotplot_data_table$id <- NULL
       dotplot_data_table
     }else{
+      dotplot_data_table <- read.csv("data/MT/2020-10-12_dotplot_data_MT.csv",
+                                     row.names = 1)
+      dotplot_data_table$id <- NULL
       dotplot_data_selected_table <- subset(dotplot_data_table, clusters %in% input$heatmap2_girafe_selected)
       dotplot_data_selected_table
     }
@@ -221,12 +224,12 @@ server <- function(input, output) {
   })
 
   # UMAP gene
-  output$UMAP_plot <- renderPlot({
+  output$UMAP_plot <- renderGirafe({
 
 
     # UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
     # print(UMAP)
-    matrix <- readRDS("data/MT/2020-10-10_exprMat_norm_filter.Rds") %>% t()
+    matrix <- readRDS("data/MT/2020-10-12_exprMat_norm_filter.Rds") %>% t()
     UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
     UMAP <- UMAP[row.names(matrix), ]
     UMAP_matrix <- cbind(UMAP, matrix)
@@ -240,12 +243,13 @@ server <- function(input, output) {
     # print(UMAP_matrix[ , "Sema2b"])
 
     if (is.null(input$dotplot_girafe_selected)) {
-      ggplot(UMAP_matrix, aes(x = UMAP_1, y = UMAP_2,
-                              colour = Sema2b)) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
+      # change to total UMI
+      gg_UMAP_gene <- ggplot(UMAP_matrix, aes(x = UMAP_1, y = UMAP_2,
+                              colour = log10UMI)) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
         geom_point() +
         # scale_color_viridis_d() +
         theme_minimal() +
-        coord_equal()
+        theme(legend.position = "none")
     }else{
       # print(input$dotplot_girafe_selected)
       # strsplit("hemocyte>? Crop or hindgut ?|Hml_dally", "\\|")[[1]][2]
@@ -255,13 +259,16 @@ server <- function(input, output) {
       # strsplit("Hml_dally", "_")[[1]]
       split.var <- strsplit(split.var, "_")[[1]]
 
-      ggplot(UMAP_matrix, aes(x = UMAP_1, y = UMAP_2,
+      gg_UMAP_gene <- ggplot(UMAP_matrix, aes(x = UMAP_1, y = UMAP_2,
                               colour = get(split.var[1]))) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
         geom_point() +
         # scale_color_viridis_d() +
         theme_minimal() +
-        coord_equal()
+        theme(legend.position = "none")
     }
+
+    girafe(ggobj = gg_UMAP_gene)
+
   })
 
 
