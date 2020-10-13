@@ -116,7 +116,7 @@ server <- function(input, output) {
   output$dotplot_girafe <- renderGirafe({
     my_palette <- colorRampPalette(c("black", "blue", "yellow", "red"), alpha=TRUE)(n=255)
 
-    dotplot_data <- read.csv("data/MT/2020-10-10_MT_dotplot_data.csv",
+    dotplot_data <- read.csv("data/MT/2020-10-12_dotplot_data_MT.csv",
                              row.names = 1)
 
     if (is.null(input$heatmap2_girafe_selected)) {
@@ -128,7 +128,7 @@ server <- function(input, output) {
 
       dotplot_data_order_by_score_top <- subset(dotplot_data, pair %in% pair_top & clusters %in% clusters_top)
 
-      gg_dot <- ggplot(dotplot_data_order_by_score_top, aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
+      gg_dot <- ggplot(dotplot_data_order_by_score_top, aes(x=clusters, y=pair, tooltip = id, data_id = id)) +
         geom_point_interactive(aes(size=-log10(pvalue), color=score)) +
         scale_color_gradientn("score", colors=my_palette) +
         theme_bw() +
@@ -146,7 +146,7 @@ server <- function(input, output) {
       pair_top <- head(unique(dotplot_data_order_by_score$pair), 5)
       dotplot_data_selected_order_by_score_top <- subset(dotplot_data_selected, pair %in% pair_top)
 
-      gg_dot <- ggplot(dotplot_data_selected_order_by_score_top, aes(x=clusters, y=pair, tooltip = id, data_id = pair)) +
+      gg_dot <- ggplot(dotplot_data_selected_order_by_score_top, aes(x=clusters, y=pair, tooltip = id, data_id = id)) +
         geom_point_interactive(aes(size=-log10(pvalue), color=score)) +
         scale_color_gradientn("score", colors=my_palette) +
         theme_bw() +
@@ -166,17 +166,14 @@ server <- function(input, output) {
 
   output$dotplot_table <- renderDataTable({
     if (is.null(input$heatmap2_girafe_selected)) {
-      dotplot_data <- read.csv("data/MT/2020-10-10_MT_dotplot_data.csv",
+      dotplot_data_table <- read.csv("data/MT/2020-10-12_dotplot_data_MT.csv",
                                row.names = 1)
-      dotplot_data
+      dotplot_data_table$id <- NULL
+      dotplot_data_table
     }else{
-      dotplot_data_selected <- subset(dotplot_data, clusters %in% input$heatmap2_girafe_selected)
-      dotplot_data_selected
+      dotplot_data_selected_table <- subset(dotplot_data_table, clusters %in% input$heatmap2_girafe_selected)
+      dotplot_data_selected_table
     }
-  })
-
-  output$dotplot_choices <- renderPrint({
-    input$dotplot_girafe_selected
   })
 
   # UMAP cluster
@@ -184,15 +181,34 @@ server <- function(input, output) {
 
     UMAP_cluster_annotation <- readRDS("data/MT/2020-10-12_UMAP_matrix_down_sample_to_3000.Rds")
 
-    if (is.null(input$heatmap2_girafe_selected)) {
+    if (is.null(input$dotplot_girafe_selected)) {
+
       gg_UMAP_cluster <- ggplot(UMAP_cluster_annotation, aes(x = UMAP_1, y = UMAP_2,
                             colour = annotation, group = annotation)) +
         geom_point_interactive(aes(tooltip = annotation, data_id = annotation)) +
         scale_color_viridis_d() +
-        theme_minimal()
+        theme_minimal() +
+        theme(legend.position = "none")
 
     }else{
+      # print(input$dotplot_girafe_selected)
+      split.var <- strsplit(input$dotplot_girafe_selected, "\\|")[[1]][1]
+      split.var <- strsplit(split.var, ">")[[1]]
+      # print(split.var)
+      UMAP_cluster_annotation_filter <- subset(UMAP_cluster_annotation, annotation %in% split.var)
+      UMAP_1_min <- min(UMAP_cluster_annotation$UMAP_1)
+      UMAP_1_max <- max(UMAP_cluster_annotation$UMAP_1)
+      UMAP_2_min <- min(UMAP_cluster_annotation$UMAP_2)
+      UMAP_2_max <- max(UMAP_cluster_annotation$UMAP_2)
 
+      gg_UMAP_cluster <- ggplot(UMAP_cluster_annotation_filter, aes(x = UMAP_1, y = UMAP_2,
+                                                             colour = annotation, group = annotation)) +
+        geom_point_interactive(aes(tooltip = annotation, data_id = annotation)) +
+        scale_color_viridis_d() +
+        theme_minimal() +
+        theme(legend.position = "none") +
+        xlim(UMAP_1_min, UMAP_1_max) +
+        ylim(UMAP_2_min, UMAP_2_max)
     }
 
     girafe(ggobj = gg_UMAP_cluster,
@@ -231,9 +247,16 @@ server <- function(input, output) {
         theme_minimal() +
         coord_equal()
     }else{
-      split.var <- strsplit(input$dotplot_girafe_selected, "_")
+      # print(input$dotplot_girafe_selected)
+      # strsplit("hemocyte>? Crop or hindgut ?|Hml_dally", "\\|")[[1]][2]
+      split.var <- strsplit(input$dotplot_girafe_selected, "\\|")[[1]][2]
+
+      # print(split.var)
+      # strsplit("Hml_dally", "_")[[1]]
+      split.var <- strsplit(split.var, "_")[[1]]
+
       ggplot(UMAP_matrix, aes(x = UMAP_1, y = UMAP_2,
-                              colour = get(split.var[[1]][1]))) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
+                              colour = get(split.var[1]))) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
         geom_point() +
         # scale_color_viridis_d() +
         theme_minimal() +
