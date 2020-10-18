@@ -33,7 +33,11 @@ ui <- dashboardPage(
                             box(dataTableOutput("dotplot_table"), style = "height:500px; overflow-x: scroll;", width = 6), # https://stackoverflow.com/questions/47505893/adding-a-vertical-and-horizontal-scroll-bar-to-the-dt-table-in-r-shiny
                             # box(girafeOutput("UMAP_cluster_girafe"), width = 8),
                             # box(girafeOutput("UMAP_plot"), width = 8, style = "height:500px")
-                            box(grVizOutput("networkPlot"), width = 10)
+                            box(grVizOutput("networkPlot"), width = 12),
+                            box(selectInput("network_layout",
+                                            "layout:",
+                                            c("nicely", "circle", "tree", "kk", "fr")),
+                                width = 4)
                             ),
                     tabItem("heart",
                             h1("Heart")
