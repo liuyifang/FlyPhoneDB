@@ -274,5 +274,21 @@ server <- function(input, output) {
   #
   # })
 
+  output$networkPlot <- renderGrViz({
+
+    ndf <- read.csv("ndf_example.csv")
+    # ndf$width <- 1.5
+    # ndf$fontsize <- 25
+
+    edf <- read.csv("edf_example.csv")
+
+    the_graph <-
+      create_graph(
+        nodes_df = ndf,
+        edges_df = edf)
+
+    render_graph(graph = the_graph, layout = "tree")
+
+  })
 
 } # server
