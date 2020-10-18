@@ -1,7 +1,7 @@
 # Import libraries
-library(shiny)
-library(shinythemes)
-library(ggplot2)
+# library(shiny)
+# library(shinythemes)
+# library(ggplot2)
 
 options(stringsAsFactors = FALSE)
 
@@ -12,7 +12,7 @@ options(stringsAsFactors = FALSE)
 # Define server function
 server <- function(input, output) {
 
-  # heatmap data2
+  # read heatmap data2
   count_network <- read.csv("data/MT/2020-10-10_count_network_MT.csv")
 
   data_wide <- pivot_wider(count_network, names_from = TARGET, values_from = count) %>% as.data.frame()
@@ -116,6 +116,7 @@ server <- function(input, output) {
   output$dotplot_girafe <- renderGirafe({
     my_palette <- colorRampPalette(c("black", "blue", "yellow", "red"), alpha=TRUE)(n=255)
 
+    # read
     dotplot_data <- read.csv("data/MT/2020-10-12_dotplot_data_MT.csv",
                              row.names = 1)
 
@@ -166,11 +167,13 @@ server <- function(input, output) {
 
   output$dotplot_table <- renderDataTable({
     if (is.null(input$heatmap2_girafe_selected)) {
+      # read
       dotplot_data_table <- read.csv("data/MT/2020-10-12_dotplot_data_MT.csv",
                                row.names = 1)
       dotplot_data_table$id <- NULL
       dotplot_data_table
     }else{
+      # read
       dotplot_data_table <- read.csv("data/MT/2020-10-12_dotplot_data_MT.csv",
                                      row.names = 1)
       dotplot_data_table$id <- NULL
@@ -179,97 +182,97 @@ server <- function(input, output) {
     }
   })
 
-  # UMAP cluster
-  output$UMAP_cluster_girafe <- renderGirafe({
-
-    UMAP_cluster_annotation <- readRDS("data/MT/2020-10-12_UMAP_matrix_down_sample_to_3000.Rds")
-
-    if (is.null(input$dotplot_girafe_selected)) {
-
-      gg_UMAP_cluster <- ggplot(UMAP_cluster_annotation, aes(x = UMAP_1, y = UMAP_2,
-                            colour = annotation, group = annotation)) +
-        geom_point_interactive(aes(tooltip = annotation, data_id = annotation)) +
-        scale_color_viridis_d() +
-        theme_minimal() +
-        theme(legend.position = "none")
-
-    }else{
-      # print(input$dotplot_girafe_selected)
-      split.var <- strsplit(input$dotplot_girafe_selected, "\\|")[[1]][1]
-      split.var <- strsplit(split.var, ">")[[1]]
-      # print(split.var)
-      UMAP_cluster_annotation_filter <- subset(UMAP_cluster_annotation, annotation %in% split.var)
-      UMAP_1_min <- min(UMAP_cluster_annotation$UMAP_1)
-      UMAP_1_max <- max(UMAP_cluster_annotation$UMAP_1)
-      UMAP_2_min <- min(UMAP_cluster_annotation$UMAP_2)
-      UMAP_2_max <- max(UMAP_cluster_annotation$UMAP_2)
-
-      gg_UMAP_cluster <- ggplot(UMAP_cluster_annotation_filter, aes(x = UMAP_1, y = UMAP_2,
-                                                             colour = annotation, group = annotation)) +
-        geom_point_interactive(aes(tooltip = annotation, data_id = annotation)) +
-        scale_color_viridis_d() +
-        theme_minimal() +
-        theme(legend.position = "none") +
-        xlim(UMAP_1_min, UMAP_1_max) +
-        ylim(UMAP_2_min, UMAP_2_max)
-    }
-
-    girafe(ggobj = gg_UMAP_cluster,
-           options = list(
-             opts_hover_inv(css = "opacity:0.1;"),
-             opts_hover(css = "stroke-width:2;")
-           )
-    )
-
-  })
-
-  # UMAP gene
-  output$UMAP_plot <- renderGirafe({
-
-
-    # UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
-    # print(UMAP)
-    matrix <- readRDS("data/MT/2020-10-12_exprMat_norm_filter.Rds") %>% t()
-    UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
-    UMAP <- UMAP[row.names(matrix), ]
-    UMAP_matrix <- cbind(UMAP, matrix)
-    # plot(UMAP, pch=16)
-
-    # print(input$dotplot_girafe_selected)
-    # split.var <- strsplit("apolpp_dally", "_")
-    # class(split.var)
-    # print(split.var[[1]][1])
-    # split.var <- c("Sema2b" , "dally" )
-    # print(UMAP_matrix[ , "Sema2b"])
-
-    if (is.null(input$dotplot_girafe_selected)) {
-      # change to total UMI
-      gg_UMAP_gene <- ggplot(UMAP_matrix, aes(x = UMAP_1, y = UMAP_2,
-                              colour = log10UMI)) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
-        geom_point() +
-        # scale_color_viridis_d() +
-        theme_minimal() +
-        theme(legend.position = "none")
-    }else{
-      # print(input$dotplot_girafe_selected)
-      # strsplit("hemocyte>? Crop or hindgut ?|Hml_dally", "\\|")[[1]][2]
-      split.var <- strsplit(input$dotplot_girafe_selected, "\\|")[[1]][2]
-
-      # print(split.var)
-      # strsplit("Hml_dally", "_")[[1]]
-      split.var <- strsplit(split.var, "_")[[1]]
-
-      gg_UMAP_gene <- ggplot(UMAP_matrix, aes(x = UMAP_1, y = UMAP_2,
-                              colour = get(split.var[1]))) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
-        geom_point() +
-        # scale_color_viridis_d() +
-        theme_minimal() +
-        theme(legend.position = "none")
-    }
-
-    girafe(ggobj = gg_UMAP_gene)
-
-  })
+  # # UMAP cluster
+  # output$UMAP_cluster_girafe <- renderGirafe({
+  #
+  #   UMAP_cluster_annotation <- readRDS("data/MT/2020-10-12_UMAP_matrix_down_sample_to_3000.Rds")
+  #
+  #   if (is.null(input$dotplot_girafe_selected)) {
+  #
+  #     gg_UMAP_cluster <- ggplot(UMAP_cluster_annotation, aes(x = UMAP_1, y = UMAP_2,
+  #                           colour = annotation, group = annotation)) +
+  #       geom_point_interactive(aes(tooltip = annotation, data_id = annotation)) +
+  #       scale_color_viridis_d() +
+  #       theme_minimal() +
+  #       theme(legend.position = "none")
+  #
+  #   }else{
+  #     # print(input$dotplot_girafe_selected)
+  #     split.var <- strsplit(input$dotplot_girafe_selected, "\\|")[[1]][1]
+  #     split.var <- strsplit(split.var, ">")[[1]]
+  #     # print(split.var)
+  #     UMAP_cluster_annotation_filter <- subset(UMAP_cluster_annotation, annotation %in% split.var)
+  #     UMAP_1_min <- min(UMAP_cluster_annotation$UMAP_1)
+  #     UMAP_1_max <- max(UMAP_cluster_annotation$UMAP_1)
+  #     UMAP_2_min <- min(UMAP_cluster_annotation$UMAP_2)
+  #     UMAP_2_max <- max(UMAP_cluster_annotation$UMAP_2)
+  #
+  #     gg_UMAP_cluster <- ggplot(UMAP_cluster_annotation_filter, aes(x = UMAP_1, y = UMAP_2,
+  #                                                            colour = annotation, group = annotation)) +
+  #       geom_point_interactive(aes(tooltip = annotation, data_id = annotation)) +
+  #       scale_color_viridis_d() +
+  #       theme_minimal() +
+  #       theme(legend.position = "none") +
+  #       xlim(UMAP_1_min, UMAP_1_max) +
+  #       ylim(UMAP_2_min, UMAP_2_max)
+  #   }
+  #
+  #   girafe(ggobj = gg_UMAP_cluster,
+  #          options = list(
+  #            opts_hover_inv(css = "opacity:0.1;"),
+  #            opts_hover(css = "stroke-width:2;")
+  #          )
+  #   )
+  #
+  # })
+  #
+  # # UMAP gene
+  # output$UMAP_plot <- renderGirafe({
+  #
+  #
+  #   # UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
+  #   # print(UMAP)
+  #   matrix <- readRDS("data/MT/2020-10-12_exprMat_norm_filter.Rds") %>% t()
+  #   UMAP <- read.csv("data/MT/2020-10-08_MT_UMAP.csv", row.names = 1)
+  #   UMAP <- UMAP[row.names(matrix), ]
+  #   UMAP_matrix <- cbind(UMAP, matrix)
+  #   # plot(UMAP, pch=16)
+  #
+  #   # print(input$dotplot_girafe_selected)
+  #   # split.var <- strsplit("apolpp_dally", "_")
+  #   # class(split.var)
+  #   # print(split.var[[1]][1])
+  #   # split.var <- c("Sema2b" , "dally" )
+  #   # print(UMAP_matrix[ , "Sema2b"])
+  #
+  #   if (is.null(input$dotplot_girafe_selected)) {
+  #     # change to total UMI
+  #     gg_UMAP_gene <- ggplot(UMAP_matrix, aes(x = UMAP_1, y = UMAP_2,
+  #                             colour = log10UMI)) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
+  #       geom_point() +
+  #       # scale_color_viridis_d() +
+  #       theme_minimal() +
+  #       theme(legend.position = "none")
+  #   }else{
+  #     # print(input$dotplot_girafe_selected)
+  #     # strsplit("hemocyte>? Crop or hindgut ?|Hml_dally", "\\|")[[1]][2]
+  #     split.var <- strsplit(input$dotplot_girafe_selected, "\\|")[[1]][2]
+  #
+  #     # print(split.var)
+  #     # strsplit("Hml_dally", "_")[[1]]
+  #     split.var <- strsplit(split.var, "_")[[1]]
+  #
+  #     gg_UMAP_gene <- ggplot(UMAP_matrix, aes(x = UMAP_1, y = UMAP_2,
+  #                             colour = get(split.var[1]))) + # https://stackoverflow.com/questions/22309285/how-to-use-a-variable-to-specify-column-name-in-ggplot
+  #       geom_point() +
+  #       # scale_color_viridis_d() +
+  #       theme_minimal() +
+  #       theme(legend.position = "none")
+  #   }
+  #
+  #   girafe(ggobj = gg_UMAP_gene)
+  #
+  # })
 
 
 } # server
