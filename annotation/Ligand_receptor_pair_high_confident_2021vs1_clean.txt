@@ -1,0 +1,197 @@
+geneid_secreted	FBgn_secreted	Gene_secreted	geneid_receptor	FBgn_receptor	Gene_receptor	pathway_receptor	standard	interaction	Source	Additional_info_GO
+39833	FBgn0004569	aos	37455	FBgn0003731	Egfr	EGFR signaling pathway	Stringent	PPI	Norbert
+34171	FBgn0001137	grk	37455	FBgn0003731	Egfr	EGFR signaling pathway	Stringent	PPI	Norbert
+326198	FBgn0052179	Krn	37455	FBgn0003731	Egfr	EGFR signaling pathway	Stringent	PPI	Norbert
+35253	FBgn0005672	spi	37455	FBgn0003731	Egfr	EGFR signaling pathway	Stringent	PPI	Norbert
+38657	FBgn0003984	vn	37455	FBgn0003731	Egfr	EGFR signaling pathway	Stringent	PPI	Norbert
+32876	FBgn0030964	Pvf1	34127	FBgn0032006	Pvr	PVR RTK signaling pathway	Stringent	PPI	Norbert
+33994	FBgn0031888	Pvf2	34127	FBgn0032006	Pvr	PVR RTK signaling pathway	Stringent	other	Norbert
+33995	FBgn0085407	Pvf3	34127	FBgn0032006	Pvr	PVR RTK signaling pathway	Stringent	other	Norbert
+42356	FBgn0014135	bnl	39564	FBgn0285896	btl	FGFR signaling pathway	Stringent	PPI	Norbert
+39013	FBgn0263930	dally	39564	FBgn0285896	btl	FGFR signaling pathway	Stringent	PPI	Norbert
+36255	FBgn0033649	pyr	39564	FBgn0285896	btl	FGFR signaling pathway	Stringent	other	Norbert
+36258	FBgn0033652	ths	39564	FBgn0285896	btl	FGFR signaling pathway	Stringent	other	Norbert
+42356	FBgn0014135	bnl	42160	FBgn0010389	htl	FGFR signaling pathway	Stringent	other	Norbert
+36255	FBgn0033649	pyr	42160	FBgn0010389	htl	FGFR signaling pathway	Stringent	other	Norbert
+36258	FBgn0033652	ths	42160	FBgn0010389	htl	FGFR signaling pathway	Stringent	other	Norbert
+33432	FBgn0000490	dpp	39013	FBgn0263930	dally	HEDGEHOG signaling pathway	Stringent	PPI	Norbert
+42737	FBgn0004644	hh	39013	FBgn0263930	dally	HEDGEHOG signaling pathway	Stringent	PPI	Norbert
+32813	FBgn0004956	upd1	39013	FBgn0263930	dally	HEDGEHOG signaling pathway	Stringent	PPI	Norbert
+34009	FBgn0284084	wg	39013	FBgn0263930	dally	HEDGEHOG signaling pathway	Stringent	PPI	Norbert
+42737	FBgn0004644	hh	39596	FBgn0041604	dlp	HEDGEHOG signaling pathway	Stringent	PPI	Norbert
+34009	FBgn0284084	wg	39596	FBgn0041604	dlp	HEDGEHOG signaling pathway	Stringent	PPI	Norbert
+42737	FBgn0004644	hh	35851	FBgn0003892	ptc	HEDGEHOG signaling pathway	Stringent	PPI	Norbert
+42737	FBgn0004644	hh	33196	FBgn0003444	smo	HEDGEHOG signaling pathway	Stringent	PPI	Norbert
+33245	FBgn0284247	ds	33627	FBgn0001075	ft	HIPPO signaling pathway	Stringent	PPI	Norbert
+37089	FBgn0000658	fj	33627	FBgn0001075	ft	HIPPO signaling pathway	Stringent	PPI	Norbert
+39149	FBgn0044051	Ilp1	42549	FBgn0283499	InR	INSULIN signaling pathway	Stringent	other	Norbert
+39150	FBgn0036046	Ilp2	42549	FBgn0283499	InR	INSULIN signaling pathway	Stringent	other	Norbert
+39151	FBgn0044050	Ilp3	42549	FBgn0283499	InR	INSULIN signaling pathway	Stringent	other	Norbert
+39152	FBgn0044049	Ilp4	42549	FBgn0283499	InR	INSULIN signaling pathway	Stringent	other	Norbert
+2768992	FBgn0044048	Ilp5	42549	FBgn0283499	InR	INSULIN signaling pathway	Stringent	PPI	Norbert
+31220	FBgn0044047	Ilp6	42549	FBgn0283499	InR	INSULIN signaling pathway	Stringent	other	Norbert
+31328	FBgn0044046	Ilp7	42549	FBgn0283499	InR	INSULIN signaling pathway	Stringent	other	Norbert
+39909	FBgn0036690	Ilp8	42549	FBgn0283499	InR	INSULIN signaling pathway	Stringent	PPI	Norbert
+39909	FBgn0036690	Ilp8	43098	FBgn0039354	Lgr3	INSULIN signaling pathway	Stringent	PPI	Norbert
+32813	FBgn0004956	upd1	32976	FBgn0043903	dome	JAK-STAT signaling pathway	Stringent	PPI	Norbert
+32805	FBgn0030904	upd2	32976	FBgn0043903	dome	JAK-STAT signaling pathway	Stringent	PPI	Norbert
+3346149	FBgn0053542	upd3	32976	FBgn0043903	dome	JAK-STAT signaling pathway	Stringent	PPI	Norbert
+42313	FBgn0000463	Dl	31293	FBgn0004647	N	NOTCH signaling pathway	Stringent	PPI	Norbert
+43275	FBgn0004197	Ser	31293	FBgn0004647	N	NOTCH signaling pathway	Stringent	PPI	Norbert
+43826	FBgn0024913	Actbeta	35900	FBgn0011300	babo	TGF beta signaling pathway	Stringent	PPI	Norbert
+33474	FBgn0031461	daw	35900	FBgn0011300	babo	TGF beta signaling pathway	Stringent	PPI	Norbert
+33432	FBgn0000490	dpp	35900	FBgn0011300	babo	TGF beta signaling pathway	Stringent	other	Norbert
+37778	FBgn0024234	gbb	35900	FBgn0011300	babo	TGF beta signaling pathway	Stringent	other	Norbert
+43811	FBgn0026199	myo	35900	FBgn0011300	babo	TGF beta signaling pathway	Stringent	PPI	Norbert
+43804	FBgn0039914	mav	35900	FBgn0011300	babo	TGF beta signaling pathway	Stringent	Other	Norbert
+33474	FBgn0031461	daw	41772	FBgn0003169	put	TGF beta signaling pathway	Stringent	PPI	Norbert
+33432	FBgn0000490	dpp	41772	FBgn0003169	put	TGF beta signaling pathway	Stringent	PPI	Norbert
+37778	FBgn0024234	gbb	41772	FBgn0003169	put	TGF beta signaling pathway	Stringent	other	Norbert
+46000	FBgn0005590	scw	41772	FBgn0003169	put	TGF beta signaling pathway	Stringent	PPI	Norbert
+33432	FBgn0000490	dpp	35731	FBgn0003317	sax	TGF beta signaling pathway	Stringent	PPI	Norbert
+37778	FBgn0024234	gbb	35731	FBgn0003317	sax	TGF beta signaling pathway	Stringent	PPI	Norbert
+46000	FBgn0005590	scw	35731	FBgn0003317	sax	TGF beta signaling pathway	Stringent	PPI	Norbert
+43826	FBgn0024913	Actbeta	33753	FBgn0003716	tkv	TGF beta signaling pathway	Stringent	Other	Norbert
+33474	FBgn0031461	daw	33753	FBgn0003716	tkv	TGF beta signaling pathway	Stringent	Other	Norbert
+33432	FBgn0000490	dpp	33753	FBgn0003716	tkv	TGF beta signaling pathway	Stringent	PPI	Norbert
+37778	FBgn0024234	gbb	33753	FBgn0003716	tkv	TGF beta signaling pathway	Stringent	PPI	Norbert
+43811	FBgn0026199	myo	33753	FBgn0003716	tkv	TGF beta signaling pathway	Stringent	Other	Norbert
+46000	FBgn0005590	scw	33753	FBgn0003716	tkv	TGF beta signaling pathway	Stringent	PPI	Norbert
+36054	FBgn0033483	egr	35103	FBgn0032682	grnd	TNF alpha signaling pathway	Stringent	PPI	Norbert
+36054	FBgn0033483	egr	32849	FBgn0030941	wgn	TNF alpha signaling pathway	Stringent	PPI	Norbert
+34009	FBgn0284084	wg	44279	FBgn0000119	arr	WNT signaling pathway	Stringent	PPI	Norbert
+34011	FBgn0031903	Wnt10	44279	FBgn0000119	arr	WNT signaling pathway	Stringent	other	Norbert
+35975	FBgn0004360	Wnt2	44279	FBgn0000119	arr	WNT signaling pathway	Stringent	other	Norbert
+34007	FBgn0010453	Wnt4	44279	FBgn0000119	arr	WNT signaling pathway	Stringent	other	Norbert
+32838	FBgn0010194	Wnt5	44279	FBgn0000119	arr	WNT signaling pathway	Stringent	other	Norbert
+34010	FBgn0031902	Wnt6	44279	FBgn0000119	arr	WNT signaling pathway	Stringent	other	Norbert
+39596	FBgn0041604	dlp	39013	FBgn0263930	dally	WNT signaling pathway	Stringent	PPI	Norbert
+33432	FBgn0000490	dpp	39013	FBgn0263930	dally	WNT signaling pathway	Stringent	PPI	Norbert
+42737	FBgn0004644	hh	39013	FBgn0263930	dally	WNT signaling pathway	Stringent	PPI	Norbert
+32813	FBgn0004956	upd1	39013	FBgn0263930	dally	WNT signaling pathway	Stringent	PPI	Norbert
+34009	FBgn0284084	wg	39013	FBgn0263930	dally	WNT signaling pathway	Stringent	PPI	Norbert
+42737	FBgn0004644	hh	39596	FBgn0041604	dlp	WNT signaling pathway	Stringent	PPI	Norbert
+34009	FBgn0284084	wg	39596	FBgn0041604	dlp	WNT signaling pathway	Stringent	PPI	Norbert
+34009	FBgn0284084	wg	45307	FBgn0001085	fz	WNT signaling pathway	Stringent	PPI	Norbert
+34011	FBgn0031903	Wnt10	45307	FBgn0001085	fz	WNT signaling pathway	Stringent	other	Norbert
+35975	FBgn0004360	Wnt2	45307	FBgn0001085	fz	WNT signaling pathway	Stringent	PPI	Norbert
+34007	FBgn0010453	Wnt4	45307	FBgn0001085	fz	WNT signaling pathway	Stringent	PPI	Norbert
+32838	FBgn0010194	Wnt5	45307	FBgn0001085	fz	WNT signaling pathway	Stringent	other	Norbert
+34010	FBgn0031902	Wnt6	45307	FBgn0001085	fz	WNT signaling pathway	Stringent	other	Norbert
+34009	FBgn0284084	wg	40090	FBgn0016797	fz2	WNT signaling pathway	Stringent	PPI	Norbert
+34011	FBgn0031903	Wnt10	40090	FBgn0016797	fz2	WNT signaling pathway	Stringent	other	Norbert
+35975	FBgn0004360	Wnt2	40090	FBgn0016797	fz2	WNT signaling pathway	Stringent	PPI	Norbert
+34007	FBgn0010453	Wnt4	40090	FBgn0016797	fz2	WNT signaling pathway	Stringent	PPI	Norbert
+32838	FBgn0010194	Wnt5	40090	FBgn0016797	fz2	WNT signaling pathway	Stringent	other	Norbert
+34010	FBgn0031902	Wnt6	40090	FBgn0016797	fz2	WNT signaling pathway	Stringent	other	Norbert
+34009	FBgn0284084	wg	31023	FBgn0027343	fz3	WNT signaling pathway	Stringent	PPI	Norbert
+34011	FBgn0031903	Wnt10	31023	FBgn0027343	fz3	WNT signaling pathway	Stringent	other	Norbert
+35975	FBgn0004360	Wnt2	31023	FBgn0027343	fz3	WNT signaling pathway	Stringent	PPI	Norbert
+34007	FBgn0010453	Wnt4	31023	FBgn0027343	fz3	WNT signaling pathway	Stringent	other	Norbert
+32838	FBgn0010194	Wnt5	31023	FBgn0027343	fz3	WNT signaling pathway	Stringent	other	Norbert
+34010	FBgn0031902	Wnt6	31023	FBgn0027343	fz3	WNT signaling pathway	Stringent	other	Norbert
+34009	FBgn0284084	wg	31659	FBgn0027342	fz4	WNT signaling pathway	Stringent	other	Norbert
+34011	FBgn0031903	Wnt10	31659	FBgn0027342	fz4	WNT signaling pathway	Stringent	other	Norbert
+35975	FBgn0004360	Wnt2	31659	FBgn0027342	fz4	WNT signaling pathway	Stringent	other	Norbert
+34007	FBgn0010453	Wnt4	31659	FBgn0027342	fz4	WNT signaling pathway	Stringent	PPI	Norbert
+32838	FBgn0010194	Wnt5	31659	FBgn0027342	fz4	WNT signaling pathway	Stringent	other	Norbert
+34010	FBgn0031902	Wnt6	31659	FBgn0027342	fz4	WNT signaling pathway	Stringent	other	Norbert
+41633	FBgn0038134	wntD	31659	FBgn0027342	fz4	WNT signaling pathway	Stringent	PPI	Norbert
+33361	FBgn0051665	wry	31293	FBgn0004647	N	NOTCH signaling pathway	Stringent	PPI	FlyBase
+43826	FBgn0024913	Actbeta	41772	FBgn0003169	put	TGF beta signaling pathway	Stringent	other	FlyBase
+43811	FBgn0026199	myo	44096	FBgn0024179	wit	TGF beta signaling pathway	Stringent	other	FlyBase
+37778	FBgn0024234	gbb	44096	FBgn0024179	wit	TGF beta signaling pathway	Stringent	other	FlyBase
+43811	FBgn0026199	myo	41772	FBgn0003169	put	TGF beta signaling pathway	Stringent	other	Norbert
+43804	FBgn0039914	mav	41772	FBgn0003169	put	TGF beta signaling pathway	Stringent	other	Norbert
+43804	FBgn0039914	mav	35731	FBgn0003317	sax	TGF beta signaling pathway	Stringent	other	Norbert
+43804	FBgn0039914	mav	33753	FBgn0003716	tkv	TGF beta signaling pathway	Stringent	other	Norbert
+43804	FBgn0039914	mav	44096	FBgn0024179	wit	TGF beta signaling pathway	Stringent	other	Norbert
+33474	FBgn0031461	daw	44096	FBgn0024179	wit	TGF beta signaling pathway	Stringent	other	Norbert
+43826	FBgn0024913	Actbeta	44096	FBgn0024179	wit	TGF beta signaling pathway	Stringent	other	Norbert
+46000	FBgn0005590	scw	44096	FBgn0024179	wit	TGF beta signaling pathway	Stringent	other	Norbert
+33432	FBgn0000490	dpp	44096	FBgn0024179	wit	TGF beta signaling pathway	Stringent	other	Norbert
+43146	FBgn0000206	boss	32039	FBgn0003366	sev	EGFR signaling pathway	Stringent	PPI	FlyBase
+38558	FBgn0261526	NT1	43222	FBgn0262473	Tl	Toll signaling pathway	Stringent	PPI	FlyBase
+43256	FBgn0003495	spz	43222	FBgn0262473	Tl	Toll signaling pathway	Stringent	PPI	FlyBase
+38350	FBgn0035379	spz5	43222	FBgn0262473	Tl	Toll signaling pathway	Stringent	PPI	FlyBase
+38558	FBgn0261526	NT1	37272	FBgn0034476	Toll-7	Toll signaling pathway	Stringent	PPI	FlyBase
+43256	FBgn0003495	spz	37272	FBgn0034476	Toll-7	Toll signaling pathway	Stringent	PPI	FlyBase
+38350	FBgn0035379	spz5	37272	FBgn0034476	Toll-7	Toll signaling pathway	Stringent	PPI	FlyBase
+34376	FBgn0003751	trk	35717	FBgn0003733	tor	Torso signaling pathway	Stringent	PPI	FlyBase
+38495	FBgn0004552	Akh	33942	FBgn0025595	AkhR	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+42683	FBgn0039007	CCAP	33942	FBgn0025595	AkhR	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+41742	FBgn0013767	Crz	33942	FBgn0025595	AkhR	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+38495	FBgn0004552	Akh	2768688	FBgn0039396	CCAP-R	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+41742	FBgn0013767	Crz	2768688	FBgn0039396	CCAP-R	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+38495	FBgn0004552	Akh	39409	FBgn0036278	CrzR	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+34181	FBgn0032048	Dh31	36475	FBgn0052843	Dh31-R	other	Stringent	other	FlyBase	G protein-coupled receptor signaling pathway
+41170	FBgn0012344	Dh44	36601	FBgn0033932	Dh44-R1	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+41170	FBgn0012344	Dh44	36368	FBgn0033744	Dh44-R2	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+44125	FBgn0028738	ETH	42523	FBgn0038874	ETHR	other	Stringent	other	FlyBase	G protein-coupled receptor signaling pathway
+5740142	FBgn0261386	Gpa2	42133	FBgn0016650	Lgr1	other	Stringent	other	FlyBase	G protein-coupled receptor signaling pathway
+3355097	FBgn0063368	Gpb5	42133	FBgn0016650	Lgr1	other	Stringent	other	FlyBase	G protein-coupled receptor signaling pathway
+47746	FBgn0028418	Lk	38622	FBgn0035610	Lkr	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+33148	FBgn0000719	fog	32637	FBgn0030766	mthl1	other	Stringent	other	FlyBase	G protein-coupled receptor signaling pathway
+36936	FBgn0034199	Gbp1	38057	FBgn0035132	mthl10	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+43541	FBgn0039722	Capa	41638	FBgn0038139	PK2-R2	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+44125	FBgn0028738	ETH	41638	FBgn0038139	PK2-R2	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+5740597	FBgn0085512	RYa	43253	FBgn0004842	RYa-R	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+2768691	FBgn0250832	Dup99B	31463	FBgn0029768	SPR	other	Stringent	other	FlyBase	G protein-coupled receptor signaling pathway
+39933	FBgn0036713	Mip	31463	FBgn0029768	SPR	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+39494	FBgn0003034	SP	31463	FBgn0029768	SPR	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+41890	FBgn0038343	Trissin	33812	FBgn0085410	TrissinR	other	Stringent	PPI	FlyBase	G protein-coupled receptor signaling pathway
+42947	FBgn0015591	AstA	44126	FBgn0266429	AstA-R1	other	Stringent	other	FlyBase	neuropeptide signaling pathway
+42947	FBgn0015591	AstA	43393	FBgn0039595	AstA-R2	other	Stringent	PPI	FlyBase	neuropeptide signaling pathway
+43541	FBgn0039722	Capa	40393	FBgn0037100	CapaR	other	Stringent	PPI	FlyBase	neuropeptide signaling pathway
+42683	FBgn0039007	CCAP	2768688	FBgn0039396	CCAP-R	other	Stringent	PPI	FlyBase	neuropeptide signaling pathway
+45845	FBgn0000500	Dsk	32860	FBgn0259231	CCKLR-17D1	other	Stringent	PPI	FlyBase	neuropeptide signaling pathway
+41742	FBgn0013767	Crz	39409	FBgn0036278	CrzR	other	Stringent	PPI	FlyBase	neuropeptide signaling pathway
+36030	FBgn0000715	FMRFa	38357	FBgn0035385	FMRFaR	other	Stringent	other	FlyBase	neuropeptide signaling pathway
+44324	FBgn0011581	Ms	38298	FBgn0035331	MsR1	other	Stringent	other	FlyBase	neuropeptide signaling pathway
+44324	FBgn0011581	Ms	38296	FBgn0264002	MsR2	other	Stringent	other	FlyBase	neuropeptide signaling pathway
+42018	FBgn0027109	NPF	40754	FBgn0037408	NPFR	other	Stringent	other	FlyBase	neuropeptide signaling pathway
+43193	FBgn0023178	Pdf	31234	FBgn0260753	Pdfr	other	Stringent	other	FlyBase	neuropeptide signaling pathway
+43541	FBgn0039722	Capa	41713	FBgn0038201	PK1-R	other	Stringent	PPI	FlyBase	neuropeptide signaling pathway
+41547	FBgn0028374	Hug	41639	FBgn0038140	PK2-R1	other	Stringent	PPI	FlyBase	neuropeptide signaling pathway
+41547	FBgn0028374	Hug	41638	FBgn0038139	PK2-R2	other	Stringent	PPI	FlyBase	neuropeptide signaling pathway
+250710	FBgn0045038	Proc	31408	FBgn0029723	Proc-R	other	Stringent	other	FlyBase	neuropeptide signaling pathway
+42560	FBgn0038901	Burs	34819	FBgn0003255	rk	other	Stringent	other	FlyBase	neuropeptide signaling pathway
+34845	FBgn0264810	Pburs	34819	FBgn0003255	rk	other	Stringent	other	FlyBase	neuropeptide signaling pathway
+3346202	FBgn0053527	SIFa	42530	FBgn0038880	SIFaR	other	Stringent	PPI	FlyBase	neuropeptide signaling pathway
+35286	FBgn0032840	sNPF	40195	FBgn0036934	sNPF-R	other	Stringent	other	FlyBase	neuropeptide signaling pathway
+38558	FBgn0261526	NT1	39663	FBgn0036494	Toll-6	other	Stringent	PPI	FlyBase	neurotrophin signaling pathway
+38350	FBgn0035379	spz5	39663	FBgn0036494	Toll-6	other	Stringent	PPI	FlyBase	neurotrophin signaling pathway
+43799	FBgn0040324	Ephrin	43803	FBgn0025936	Eph	other	Stringent	PPI	Norbert	Ephrin pathway
+34192	FBgn0011259	Sema1a	43832	FBgn0025741	PlexA	other	Stringent	PPI	FlyBase	axon guidance
+36846	FBgn0011260	Sema2a	43832	FBgn0025741	PlexA	other	Stringent	other	FlyBase	axon guidance
+36846	FBgn0011260	Sema2a	43766	FBgn0025740	PlexB	other	Stringent	PPI	FlyBase	axon guidance
+37066	FBgn0284221	Sema5c	43832	FBgn0025741	PlexA	other	Stringent	PPI	FlyBase	cell migration
+34192	FBgn0011259	Sema1a	36283	FBgn0004839	otk	other	Stringent	PPI	FlyBase	cell-cell signaling
+32838	FBgn0010194	Wnt5	44355	FBgn0015380	drl	other	Stringent	PPI	FlyBase	chemorepulsion of axon
+32838	FBgn0010194	Wnt5	36436	FBgn0033791	Drl-2	other	Stringent	PPI	FlyBase	chemorepulsion of axon
+34007	FBgn0010453	Wnt4	37089	FBgn0000658	fj	other	Stringent	PPI	FlyBase	establishment of planar polarity
+33627	FBgn0001075	ft	33245	FBgn0284247	ds	other	Stringent	PPI	FlyBase	establishment of planar polarity|heterophilic cell-cell adhesion via plasma membrane cell adhesion molecules
+39936	FBgn0036715	Cad74A	39936	FBgn0036715	Cad74A	other	Stringent	PPI	FlyBase	homophilic cell adhesion via plasma membrane adhesion molecules
+35070	FBgn0015609	CadN	35070	FBgn0015609	CadN	other	Stringent	PPI	FlyBase	homophilic cell adhesion via plasma membrane adhesion molecules
+38788	FBgn0265296	Dscam2	38788	FBgn0265296	Dscam2	other	Stringent	PPI	FlyBase	homophilic cell adhesion via plasma membrane adhesion molecules
+42103	FBgn0261046	Dscam3	42103	FBgn0261046	Dscam3	other	Stringent	PPI	FlyBase	homophilic cell adhesion via plasma membrane adhesion molecules
+37386	FBgn0003391	shg	37386	FBgn0003391	shg	other	Stringent	PPI	FlyBase	homophilic cell adhesion via plasma membrane adhesion molecules
+33220	FBgn0031256	shv	44885	FBgn0004657	mys	other	Stringent	PPI	FlyBase	integrin-mediated signaling pathway
+35975	FBgn0004360	Wnt2	36283	FBgn0004839	otk	other	Stringent	PPI	FlyBase	internal genitalia morphogenesis
+35975	FBgn0004360	Wnt2	36284	FBgn0267728	otk2	other	Stringent	PPI	FlyBase	internal genitalia morphogenesis
+34007	FBgn0010453	Wnt4	36283	FBgn0004839	otk	other	Stringent	PPI	FlyBase	negative regulation of canonical Wnt signaling pathway
+39909	FBgn0036690	Ilp8	44355	FBgn0015380	drl	other	Stringent	PPI	FlyBase	positive regulation of cAMP-mediated signaling
+43832	FBgn0025741	PlexA	8674026	FBgn0266136	Gyc76C	other	Stringent	PPI	FlyBase	positive regulation of guanylate cyclase activity
+38003	FBgn0035092	Nplp1	8674026	FBgn0266136	Gyc76C	other	Stringent	PPI	FlyBase	receptor guanylyl cyclase signaling pathway
+38350	FBgn0035379	spz5	34582	FBgn0015400	kek2	other	Stringent	PPI	FlyBase	regulation of synaptic plasticity
+38350	FBgn0035379	spz5	32930	FBgn0031016	kek5	other	Stringent	PPI	FlyBase	regulation of synaptic plasticity
+38558	FBgn0261526	NT1	43729	FBgn0039862	kek6	other	Stringent	PPI	FlyBase	regulation of synaptic plasticity
+38350	FBgn0035379	spz5	43729	FBgn0039862	kek6	other	Stringent	PPI	FlyBase	regulation of synaptic plasticity
+42737	FBgn0004644	hh	31229	FBgn0040388	boi	other	Stringent	PPI	FlyBase	smoothened signaling pathway
+42737	FBgn0004644	hh	33972	FBgn0031872	ihog	other	Stringent	PPI	FlyBase	smoothened signaling pathway
+33896	FBgn0011722	Tig	32661	FBgn0001250	if	other	Stringent	PPI	FlyBase	substrate adhesion-dependent cell spreading
+33896	FBgn0011722	Tig	44885	FBgn0004657	mys	other	Stringent	other	FlyBase	substrate adhesion-dependent cell spreading
+246538	FBgn0264273	Sema2b	43766	FBgn0025740	PlexB	other	Stringent	PPI	FlyBase	synaptic target attraction
+41456	FBgn0037976	Tk	41286	FBgn0004841	TkR86C	other	Stringent	other	FlyBase	tachykinin receptor signaling pathway
+41456	FBgn0037976	Tk	43551	FBgn0004622	TkR99D	other	Stringent	other	FlyBase	tachykinin receptor signaling pathway
+36295	FBgn0086677	jeb	53425	FBgn0040505	Alk	other	Stringent	PPI	FlyBase	transmembrane receptor protein tyrosine kinase signaling pathway

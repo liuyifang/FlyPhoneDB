@@ -1,0 +1,304 @@
+fbgn	gene	pathway	role	GeneID
+FBgn0004569	aos	EGFR signaling pathway	ligand	39833
+FBgn0001137	grk	EGFR signaling pathway	ligand	34171
+FBgn0052179	Krn	EGFR signaling pathway	ligand	326198
+FBgn0030964	Pvf1	PVR RTK signaling pathway	ligand	32876
+FBgn0031888	Pvf2	PVR RTK signaling pathway	ligand	33994
+FBgn0085407	Pvf3	PVR RTK signaling pathway	ligand	33995
+FBgn0005672	spi	EGFR signaling pathway	ligand	35253
+FBgn0003984	vn	EGFR signaling pathway	ligand	38657
+FBgn0020224	Cbl	PVR RTK signaling pathway	other	38961
+FBgn0286070	cnk	PVR RTK signaling pathway	other	36952
+FBgn0000382	csw	PVR RTK signaling pathway	other	45278
+FBgn0010583	dock	PVR RTK signaling pathway	other	33262
+FBgn0016794	dos	PVR RTK signaling pathway	other	38321
+FBgn0004638	drk	PVR RTK signaling pathway	other	36497
+FBgn0010269	Dsor1	PVR RTK signaling pathway	other	31872
+FBgn0015399	kek1	PVR RTK signaling pathway	other	34688
+FBgn0015402	ksr	PVR RTK signaling pathway	other	40660
+FBgn0083992	Mkp	PVR RTK signaling pathway	other	4379907
+FBgn0036844	Mkp3	PVR RTK signaling pathway	other	40081
+FBgn0026252	msk	PVR RTK signaling pathway	other	44747
+FBgn0016641	PTP-ER	PVR RTK signaling pathway	other	37461
+FBgn0003079	Raf	PVR RTK signaling pathway	other	31221
+FBgn0003205	Ras85D	PVR RTK signaling pathway	other	41140
+FBgn0004390	RasGAP1	PVR RTK signaling pathway	other	39158
+FBgn0004635	rho	PVR RTK signaling pathway	other	38168
+FBgn0003256	rl	PVR RTK signaling pathway	other	3354888
+FBgn0003310	S	PVR RTK signaling pathway	other	33281
+FBgn0262866	S6kII	PVR RTK signaling pathway	other	33139
+FBgn0015296	Shc	PVR RTK signaling pathway	other	44052
+FBgn0001965	Sos	PVR RTK signaling pathway	other	34790
+FBgn0264959	Src42A	PVR RTK signaling pathway	other	35524
+FBgn0262733	Src64B	PVR RTK signaling pathway	other	48973
+FBgn0029157	ssh	PVR RTK signaling pathway	other	42986
+FBgn0014388	sty	PVR RTK signaling pathway	other	38424
+FBgn0042693	wrd	PVR RTK signaling pathway	other	42169
+FBgn0003731	Egfr	EGFR signaling pathway	receptor	37455
+FBgn0032006	Pvr	PVR RTK signaling pathway	receptor	34127
+FBgn0000097	aop	PVR RTK signaling pathway	TF	33392
+FBgn0005660	Ets21C	PVR RTK signaling pathway	TF	33229
+FBgn0003118	pnt	PVR RTK signaling pathway	TF	42757
+FBgn0014135	bnl	FGFR signaling pathway	ligand	42356
+FBgn0033649	pyr	FGFR signaling pathway	ligand	36255
+FBgn0033652	ths	FGFR signaling pathway	ligand	36258
+FBgn0026309	aft	FGFR signaling pathway	other	37034
+FBgn0286070	cnk	FGFR signaling pathway	other	36952
+FBgn0259211	grh	FGFR signaling pathway	other	37038
+FBgn0001250	if	FGFR signaling pathway	other	32661
+FBgn0015402	ksr	FGFR signaling pathway	other	40660
+FBgn0022238	lolal	FGFR signaling pathway	other	44703
+FBgn0004456	mew	FGFR signaling pathway	other	32275
+FBgn0033438	Mmp2	FGFR signaling pathway	other	35997
+FBgn0004657	mys	FGFR signaling pathway	other	44885
+FBgn0013563	Pex1	FGFR signaling pathway	other	45460
+FBgn0010333	Rac1	FGFR signaling pathway	other	38146
+FBgn0014011	Rac2	FGFR signaling pathway	other	38831
+FBgn0003205	Ras85D	FGFR signaling pathway	other	41140
+FBgn0004390	RasGAP1	FGFR signaling pathway	other	39158
+FBgn0003254	rib	FGFR signaling pathway	other	44855
+FBgn0002543	robo2	FGFR signaling pathway	other	44522
+FBgn0015296	Shc	FGFR signaling pathway	other	44052
+FBgn0001965	Sos	FGFR signaling pathway	other	34790
+FBgn0020299	stumps	FGFR signaling pathway	other	41770
+FBgn0014388	sty	FGFR signaling pathway	other	38424
+FBgn0025879	Timp	FGFR signaling pathway	other	41248
+FBgn0003870	ttk	FGFR signaling pathway	other	48317
+FBgn0015561	unpg	FGFR signaling pathway	other	35942
+FBgn0285896	btl	FGFR signaling pathway	receptor	39564
+FBgn0010389	htl	FGFR signaling pathway	receptor	42160
+FBgn0000097	aop	FGFR signaling pathway	TF	33392
+FBgn0003118	pnt	FGFR signaling pathway	TF	42757
+FBgn0004644	hh	HEDGEHOG signaling pathway	ligand	42737
+FBgn0000352	cos	HEDGEHOG signaling pathway	other	35653
+FBgn0001079	fu	HEDGEHOG signaling pathway	other	32855
+FBgn0005355	Su(fu)	HEDGEHOG signaling pathway	other	41565
+FBgn0263930	dally	HEDGEHOG signaling pathway	receptor	39013
+FBgn0041604	dlp	HEDGEHOG signaling pathway	receptor	39596
+FBgn0003892	ptc	HEDGEHOG signaling pathway	receptor	35851
+FBgn0003444	smo	HEDGEHOG signaling pathway	receptor	33196
+FBgn0004859	ci	HEDGEHOG signaling pathway	TF	43767
+FBgn0284247	ds	HIPPO signaling pathway	ligand	33245
+FBgn0262029	d	HIPPO signaling pathway	other	34179
+FBgn0002413	dco	HIPPO signaling pathway	other	43673
+FBgn0004583	ex	HIPPO signaling pathway	other	33218
+FBgn0000658	fj	HIPPO signaling pathway	other	37089
+FBgn0261456	hpo	HIPPO signaling pathway	other	37247
+FBgn0262127	kibra	HIPPO signaling pathway	other	41783
+FBgn0038965	mats	HIPPO signaling pathway	other	42634
+FBgn0086384	Mer	HIPPO signaling pathway	other	32979
+FBgn0053193	sav	HIPPO signaling pathway	other	252554
+FBgn0011739	wts	HIPPO signaling pathway	other	43651
+FBgn0001075	ft	HIPPO signaling pathway	receptor	33627
+FBgn0003345	sd	HIPPO signaling pathway	TF	32536
+FBgn0003866	tsh	HIPPO signaling pathway	TF	35430
+FBgn0034970	yki	HIPPO signaling pathway	TF	37851
+FBgn0044051	Ilp1	INSULIN signaling pathway	ligand	39149
+FBgn0036046	Ilp2	INSULIN signaling pathway	ligand	39150
+FBgn0044050	Ilp3	INSULIN signaling pathway	ligand	39151
+FBgn0044049	Ilp4	INSULIN signaling pathway	ligand	39152
+FBgn0044048	Ilp5	INSULIN signaling pathway	ligand	2768992
+FBgn0044047	Ilp6	INSULIN signaling pathway	ligand	31220
+FBgn0044046	Ilp7	INSULIN signaling pathway	ligand	31328
+FBgn0036690	Ilp8	INSULIN signaling pathway	ligand	39909
+FBgn0010379	Akt1	INSULIN signaling pathway	other	41957
+FBgn0023169	AMPKalpha	INSULIN signaling pathway	other	43904
+FBgn0033504	CAP	INSULIN signaling pathway	other	36084
+FBgn0024248	chico	INSULIN signaling pathway	other	64880
+FBgn0015218	eIF4E1	INSULIN signaling pathway	other	45525
+FBgn0024754	Flo1	INSULIN signaling pathway	other	36726
+FBgn0005198	gig	INSULIN signaling pathway	other	40201
+FBgn0038167	Lkb1	INSULIN signaling pathway	other	41673
+FBgn0020386	Pdk1	INSULIN signaling pathway	other	38017
+FBgn0020622	Pi3K21B	INSULIN signaling pathway	other	33203
+FBgn0015279	Pi3K92E	INSULIN signaling pathway	other	42446
+FBgn0026379	Pten	INSULIN signaling pathway	other	43991
+FBgn0037647	RagA-B	INSULIN signaling pathway	other	41071
+FBgn0033272	RagC-D	INSULIN signaling pathway	other	35793
+FBgn0029840	raptor	INSULIN signaling pathway	other	31543
+FBgn0041191	Rheb	INSULIN signaling pathway	other	117332
+FBgn0031006	rictor	INSULIN signaling pathway	other	32919
+FBgn0261592	RpS6	INSULIN signaling pathway	other	31700
+FBgn0283472	S6k	INSULIN signaling pathway	other	38654
+FBgn0003371	sgg	INSULIN signaling pathway	other	31248
+FBgn0033935	Sin1	INSULIN signaling pathway	other	36604
+FBgn0264357	SNF4Agamma	INSULIN signaling pathway	other	42515
+FBgn0086779	step	INSULIN signaling pathway	other	35425
+FBgn0261560	Thor	INSULIN signaling pathway	other	33569
+FBgn0021796	Tor	INSULIN signaling pathway	other	47396
+FBgn0026317	Tsc1	INSULIN signaling pathway	other	42862
+FBgn0283499	InR	INSULIN signaling pathway	receptor	42549
+FBgn0039354	Lgr3	INSULIN signaling pathway	receptor	43098
+FBgn0038197	foxo	INSULIN signaling pathway	TF	41709
+FBgn0262656	Myc	INSULIN signaling pathway	TF	31310
+FBgn0266411	sima	INSULIN signaling pathway	TF	43580
+FBgn0004956	upd1	JAK-STAT signaling pathway	ligand	32813
+FBgn0030904	upd2	JAK-STAT signaling pathway	ligand	32805
+FBgn0053542	upd3	JAK-STAT signaling pathway	ligand	3346149
+FBgn0004864	hop	JAK-STAT signaling pathway	other	32080
+FBgn0267487	Ptp61F	JAK-STAT signaling pathway	other	38160
+FBgn0041184	Socs36E	JAK-STAT signaling pathway	other	35085
+FBgn0043903	dome	JAK-STAT signaling pathway	receptor	32976
+FBgn0011236	ken	JAK-STAT signaling pathway	TF	37785
+FBgn0016917	Stat92E	JAK-STAT signaling pathway	TF	42428
+FBgn0003612	Su(var)2-10	JAK-STAT signaling pathway	TF	35927
+FBgn0000463	Dl	NOTCH signaling pathway	ligand	42313
+FBgn0004197	Ser	NOTCH signaling pathway	ligand	43275
+FBgn0031458	aph-1	NOTCH signaling pathway	other	33467
+FBgn0000180	bib	NOTCH signaling pathway	other	34330
+FBgn0000216	Brd	NOTCH signaling pathway	other	39620
+FBgn0000221	brn	NOTCH signaling pathway	other	31358
+FBgn0000524	dx	NOTCH signaling pathway	other	31589
+FBgn0011591	fng	NOTCH signaling pathway	other	40314
+FBgn0259984	kuz	NOTCH signaling pathway	other	34772
+FBgn0263601	mib1	NOTCH signaling pathway	other	39750
+FBgn0039234	Nct	NOTCH signaling pathway	other	42964
+FBgn0002932	neur	NOTCH signaling pathway	other	41085
+FBgn0002973	numb	NOTCH signaling pathway	other	34263
+FBgn0033901	O-fut1	NOTCH signaling pathway	other	36564
+FBgn0284421	Psn	NOTCH signaling pathway	other	40260
+FBgn0003557	Su(dx)	NOTCH signaling pathway	other	33379
+FBgn0026320	Tom	NOTCH signaling pathway	other	39619
+FBgn0004647	N	NOTCH signaling pathway	receptor	31293
+FBgn0002592	E(spl)m2-BFM	NOTCH signaling pathway	TF	43155
+FBgn0002609	E(spl)m3-HLH	NOTCH signaling pathway	TF	43156
+FBgn0002629	E(spl)m4-BFM	NOTCH signaling pathway	TF	43157
+FBgn0002631	E(spl)m5-HLH	NOTCH signaling pathway	TF	43158
+FBgn0002632	E(spl)m6-BFM	NOTCH signaling pathway	TF	43159
+FBgn0002633	E(spl)m7-HLH	NOTCH signaling pathway	TF	43160
+FBgn0000591	E(spl)m8-HLH	NOTCH signaling pathway	TF	43161
+FBgn0002732	E(spl)malpha-BFM	NOTCH signaling pathway	TF	43153
+FBgn0002733	E(spl)mbeta-HLH	NOTCH signaling pathway	TF	43152
+FBgn0002734	E(spl)mdelta-HLH	NOTCH signaling pathway	TF	43150
+FBgn0002735	E(spl)mgamma-HLH	NOTCH signaling pathway	TF	43151
+FBgn0027788	Hey	NOTCH signaling pathway	TF	35764
+FBgn0002578	Kaz-m1	NOTCH signaling pathway	TF	43154
+FBgn0002643	mam	NOTCH signaling pathway	TF	36555
+FBgn0004837	Su(H)	NOTCH signaling pathway	TF	34881
+FBgn0000490	dpp	TGF beta signaling pathway	ligand	33432
+FBgn0024234	gbb	TGF beta signaling pathway	ligand	37778
+FBgn0011300	babo	TGF beta signaling pathway	receptor	35900
+FBgn0003169	put	TGF beta signaling pathway	receptor	41772
+FBgn0003317	sax	TGF beta signaling pathway	receptor	35731
+FBgn0003716	tkv	TGF beta signaling pathway	receptor	33753
+FBgn0020493	Dad	TGF beta signaling pathway	TF	42059
+FBgn0011648	Mad	TGF beta signaling pathway	TF	33529
+FBgn0011655	Med	TGF beta signaling pathway	TF	43725
+FBgn0003396	shn	TGF beta signaling pathway	TF	36171
+FBgn0033483	egr	TNF alpha signaling pathway	ligand	36054
+FBgn0000229	bsk	TNF alpha signaling pathway	other	44801
+FBgn0003502	Btk29A	TNF alpha signaling pathway	other	34132
+FBgn0010341	Cdc42	TNF alpha signaling pathway	other	32981
+FBgn0044323	Cka	TNF alpha signaling pathway	other	34096
+FBgn0259212	cno	TNF alpha signaling pathway	other	40620
+FBgn0010303	hep	TNF alpha signaling pathway	other	32256
+FBgn0024329	Mekk1	TNF alpha signaling pathway	other	42253
+FBgn0010909	msn	TNF alpha signaling pathway	other	44030
+FBgn0243512	puc	TNF alpha signaling pathway	other	40958
+FBgn0010333	Rac1	TNF alpha signaling pathway	other	38146
+FBgn0014011	Rac2	TNF alpha signaling pathway	other	38831
+FBgn0045843	RacGAP84C	TNF alpha signaling pathway	other	117503
+FBgn0014380	RhoL	TNF alpha signaling pathway	other	41136
+FBgn0015295	Shark	TNF alpha signaling pathway	other	44353
+FBgn0030018	slpr	TNF alpha signaling pathway	other	44111
+FBgn0264959	Src42A	TNF alpha signaling pathway	other	35524
+FBgn0262733	Src64B	TNF alpha signaling pathway	other	48973
+FBgn0026323	Tak1	TNF alpha signaling pathway	other	39659
+FBgn0086356	tum	TNF alpha signaling pathway	other	36538
+FBgn0032682	grnd	TNF alpha signaling pathway	receptor	35103
+FBgn0030941	wgn	TNF alpha signaling pathway	receptor	32849
+FBgn0000097	aop	TNF alpha signaling pathway	TF	33392
+FBgn0001291	Jra	TNF alpha signaling pathway	TF	36057
+FBgn0001297	kay	TNF alpha signaling pathway	TF	3772082
+FBgn0284084	wg	WNT signaling pathway	ligand	34009
+FBgn0031903	Wnt10	WNT signaling pathway	ligand	34011
+FBgn0004360	Wnt2	WNT signaling pathway	ligand	35975
+FBgn0010453	Wnt4	WNT signaling pathway	ligand	34007
+FBgn0010194	Wnt5	WNT signaling pathway	ligand	32838
+FBgn0031902	Wnt6	WNT signaling pathway	ligand	34010
+FBgn0015589	Apc	WNT signaling pathway	other	44642
+FBgn0026598	Apc2	WNT signaling pathway	other	42871
+FBgn0026597	Axn	WNT signaling pathway	other	43565
+FBgn0004132	boca	WNT signaling pathway	other	48986
+FBgn0015024	CkIalpha	WNT signaling pathway	other	32221
+FBgn0000499	dsh	WNT signaling pathway	other	32078
+FBgn0002945	nkd	WNT signaling pathway	other	44843
+FBgn0044028	Notum	WNT signaling pathway	other	39751
+FBgn0003371	sgg	WNT signaling pathway	other	31248
+FBgn0000119	arr	WNT signaling pathway	receptor	44279
+FBgn0263930	dally	WNT signaling pathway	receptor	39013
+FBgn0041604	dlp	WNT signaling pathway	receptor	39596
+FBgn0001085	fz	WNT signaling pathway	receptor	45307
+FBgn0016797	fz2	WNT signaling pathway	receptor	40090
+FBgn0027343	fz3	WNT signaling pathway	receptor	31023
+FBgn0027342	fz4	WNT signaling pathway	receptor	31659
+FBgn0000117	arm	WNT signaling pathway	TF	31151
+FBgn0039907	lgs	WNT signaling pathway	TF	43791
+FBgn0261617	nej	WNT signaling pathway	TF	43856
+FBgn0085432	pan	WNT signaling pathway	TF	43769
+FBgn0043900	pygo	WNT signaling pathway	TF	43718
+FBgn0020224	Cbl	EGFR signaling pathway	other	38961
+FBgn0286070	cnk	EGFR signaling pathway	other	36952
+FBgn0000382	csw	EGFR signaling pathway	other	45278
+FBgn0010583	dock	EGFR signaling pathway	other	33262
+FBgn0016794	dos	EGFR signaling pathway	other	38321
+FBgn0004638	drk	EGFR signaling pathway	other	36497
+FBgn0010269	Dsor1	EGFR signaling pathway	other	31872
+FBgn0015399	kek1	EGFR signaling pathway	other	34688
+FBgn0015402	ksr	EGFR signaling pathway	other	40660
+FBgn0083992	Mkp	EGFR signaling pathway	other	4379907
+FBgn0036844	Mkp3	EGFR signaling pathway	other	40081
+FBgn0026252	msk	EGFR signaling pathway	other	44747
+FBgn0016641	PTP-ER	EGFR signaling pathway	other	37461
+FBgn0003079	Raf	EGFR signaling pathway	other	31221
+FBgn0003205	Ras85D	EGFR signaling pathway	other	41140
+FBgn0004390	RasGAP1	EGFR signaling pathway	other	39158
+FBgn0004635	rho	EGFR signaling pathway	other	38168
+FBgn0003256	rl	EGFR signaling pathway	other	3354888
+FBgn0003310	S	EGFR signaling pathway	other	33281
+FBgn0262866	S6kII	EGFR signaling pathway	other	33139
+FBgn0015296	Shc	EGFR signaling pathway	other	44052
+FBgn0001965	Sos	EGFR signaling pathway	other	34790
+FBgn0264959	Src42A	EGFR signaling pathway	other	35524
+FBgn0262733	Src64B	EGFR signaling pathway	other	48973
+FBgn0029157	ssh	EGFR signaling pathway	other	42986
+FBgn0014388	sty	EGFR signaling pathway	other	38424
+FBgn0042693	wrd	EGFR signaling pathway	other	42169
+FBgn0000097	aop	EGFR signaling pathway	TF	33392
+FBgn0005660	Ets21C	EGFR signaling pathway	TF	33229
+FBgn0003118	pnt	EGFR signaling pathway	TF	42757
+FBgn0011274	Dif	Toll signaling pathway	TF	35045
+FBgn0260632	dl	Toll signaling pathway	TF	35047
+FBgn0033402	Myd88	Toll signaling pathway	other	35956
+FBgn0261526	NT1	Toll signaling pathway	ligand	38558
+FBgn0010441	pll	Toll signaling pathway	other	43283
+FBgn0003495	spz	Toll signaling pathway	ligand	43256
+FBgn0035379	spz5	Toll signaling pathway	ligand	38350
+FBgn0026760	Tehao	Toll signaling pathway	other	34761
+FBgn0262473	Tl	Toll signaling pathway	receptor	43222
+FBgn0034476	Toll-7	Toll signaling pathway	receptor	37272
+FBgn0036978	Toll-9	Toll signaling pathway	other	40245
+FBgn0003882	tub	Toll signaling pathway	other	40554
+FBgn0001990	wek	Toll signaling pathway	other	48785
+FBgn0000166	bcd	Torso signaling pathway	other	40830
+FBgn0262582	cic	Torso signaling pathway	TF	53560
+FBgn0261016	clos	Torso signaling pathway	other	5740204
+FBgn0286070	cnk	Torso signaling pathway	other	36952
+FBgn0000382	csw	Torso signaling pathway	other	45278
+FBgn0016794	dos	Torso signaling pathway	other	38321
+FBgn0004638	drk	Torso signaling pathway	other	36497
+FBgn0010269	Dsor1	Torso signaling pathway	other	31872
+FBgn0005390	fs(1)M3	Torso signaling pathway	other	45994
+FBgn0004650	fs(1)N	Torso signaling pathway	other	45973
+FBgn0001139	gro	Torso signaling pathway	other	43162
+FBgn0015402	ksr	Torso signaling pathway	other	40660
+FBgn0013323	Ptth	Torso signaling pathway	other	33238
+FBgn0003079	Raf	Torso signaling pathway	other	31221
+FBgn0004636	Rap1	Torso signaling pathway	other	38244
+FBgn0003205	Ras85D	Torso signaling pathway	other	41140
+FBgn0003256	rl	Torso signaling pathway	other	3354888
+FBgn0015296	Shc	Torso signaling pathway	other	44052
+FBgn0001965	Sos	Torso signaling pathway	other	34790
+FBgn0003733	tor	Torso signaling pathway	receptor	35717
+FBgn0003751	trk	Torso signaling pathway	ligand	34376
+FBgn0003867	tsl	Torso signaling pathway	other	42564
