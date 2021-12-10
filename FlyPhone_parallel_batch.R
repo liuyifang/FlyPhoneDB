@@ -458,7 +458,10 @@ for (pathway in pathways) {
   #                       "#FFA667", "#BC5DBB", "#76EA8E", "#90559F", "#5F9858",
   #                       "#B494D0", "#D5C766", "#959592", "#7CCFF9", "#AF876D",
   #                       "#F9CCDF", "#939DD1", "#4B5FF5", "#6BAFAE"), names= celltypes)
-  myColors <- brewer.pal(length(celltypes), "Set1")
+  qual_col_pals = brewer.pal.info[brewer.pal.info$category == 'qual',]
+  col_vector = unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals)))
+  myColors <- sample(col_vector, length(celltypes))
+  # myColors <- brewer.pal(length(celltypes), "Set1")
   cell_col<-structure(myColors, names= celltypes)
 
   col <- cell_col
