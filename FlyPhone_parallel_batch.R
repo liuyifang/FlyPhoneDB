@@ -442,7 +442,7 @@ for (pathway in pathways) {
   interaction_pathway_long <- cbind(interaction_pathway_long_scores, interaction_pathway_long_pvalues)
 
   # interaction_pathway_filter <- subset(interaction_pathway_long, score >= 0.05 & pvalue <= 0.05)
-  interaction_pathway_filter <- subset(interaction_pathway_long, pvalue < 0.05)
+  interaction_pathway_filter <- subset(interaction_pathway_long, pvalue < 0.05) # filter out interaction if pvalue > 0.05
 
   data <- interaction_pathway_filter
 
@@ -476,10 +476,10 @@ for (pathway in pathways) {
   arrow.width=3
   edge.label.color='black'
   edge.label.cex=1
-  edge.max.width=4
+  edge.max.width=4 # the maximum thickness of the line is 4
 
   # net <- data %>% group_by(variable) %>% dplyr::summarize(n=n())
-  net <- data %>% group_by(variable) %>% summarize(mean_score = mean(score))
+  net <- data %>% group_by(variable) %>% summarize(mean_score = mean(score)) # calculate the average score group by cell type
 
   net <- net %>%
     separate(variable, c("sender", "receiver"), ">")
@@ -525,10 +525,10 @@ for (pathway in pathways) {
     E(g)$label<-E(g)$n
   }
   if(max(E(g)$weight)==min(E(g)$weight)){
-    E(g)$width<-1
+    E(g)$width<-1 # if all the average scores are the same, set all the line thickness to 1
   }else{
     # E(g)$width<-0.1 + edge.max.width/(max(E(g)$weight)-min(E(g)$weight))*(E(g)$weight-min(E(g)$weight))
-    E(g)$width <- 0.1 + E(g)$weight/max(E(g)$weight)*edge.max.width
+    E(g)$width <- 0.1 + E(g)$weight/max(E(g)$weight)*edge.max.width # otherwise, set the line thickness linearly related to the average score
   }
   E(g)$arrow.width<-arrow.width
   E(g)$label.color<-edge.label.color
