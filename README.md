@@ -6,5 +6,5 @@ https://www.flyrnai.org/tools/fly_phone/web/
 
 If you use FlyPhoneDB in your work, please cite:
 
-> Liu, Y., Hu, Y., Li, J. S. S., Rodiger, J., Comjean, A., Attrill, H., ... & Perrimon, N. (2021). FlyPhoneDB: An integrated web-based resource for cell-cell communication prediction in Drosophila. bioRxiv.
+> Liu, Y., Li, J. S. S., Rodiger, J., Comjean, A., Attrill, H., Antonazzo, G., ... & Perrimon, N. (2022). FlyPhoneDB: an integrated web-based resource for cell–cell communication prediction in Drosophila. Genetics, 220(3), iyab235.
 
