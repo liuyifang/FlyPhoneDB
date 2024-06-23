@@ -47,7 +47,7 @@ if (!dir.exists(paste0(output_dir, "/dotplot"))) {dir.create(paste0(output_dir, 
 if (!dir.exists(paste0(output_dir, "/circleplot"))) {dir.create(paste0(output_dir, "/circleplot"), recursive = TRUE)}
 
 # plan(multiprocess, workers = 8) ## => parallelize on your local computer
-plan(multiprocess, workers = as.numeric(opt$cores)) ## => parallelize on your local computer
+future::plan(future::multisession, workers = as.numeric(opt$cores)) ## => parallelize on your local computer
 
 ####################################
 # Input and cluster means
